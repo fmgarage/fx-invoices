@@ -1,0 +1,191 @@
+/*	invoice_new_v1.fmfn
+
+	Erzeugt die JSON-Parameter für das Script FXInvoices.new()
+	
+	Version 1.0, Stand 22.05.2026
+
+	prüfen: alle Variablen werden im JSON auch verwendet.
+
+	@info https://e-rechnung-bund.de/app/uploads/2025/09/Uebersichtsliste-Eingabefelder-OZG-RE_092025.pdf
+
+	@fixme: pfad wieder raus?
+
+*/
+
+Let(
+	[
+		/*	Format
+
+			UBL                  – Peppol BIS Billing 3.0 (UBL)
+			CII                  – Cross Industry Invoice (UN/CEFACT)
+			XRECHNUNG-UBL        – XRechnung 3.0 in UBL-Syntax
+			XRECHNUNG-CII        – XRechnung 3.0 in CII-Syntax
+			Factur-X-Basic       – ZUGFeRD/Factur-X Basic
+			Factur-X-EN16931     – ZUGFeRD/Factur-X EN16931 (= "Comfort")
+			Factur-X-Extended    – ZUGFeRD/Factur-X Extended
+			Factur-X-XRechnung   – ZUGFeRD im XRechnung-Profil
+
+			nicht untersützt werden die Formate Factur-X-Minimum und Factur-X-BasicWL, da diese genaugenommen keine E-Rechnung im Sinne der EU-Richtlinie 2014/55/EU darstellen.
+
+		*/
+		format = "Factur-X-EN16931";
+
+		/*	path: Pfad zum Speicherort der PDF-Datei
+
+			Der Pfad muss entweder vom Typ filemac: oder filewin: sein
+			Alternativ kann die Datei auch über das globale Containerfeld FXIvoice::a_pdf_in_ übergeben werden. In diesem Fall muss der Pfad hier leer gelassen werden.
+		*/
+		path = "";
+
+		/*	BT-3 (1..5): Code für den Rechnungstyp, z.B.:
+
+			380 – Handelsrechnung (Standardrechnung)
+			326 – Teilrechnung (Abschlagsrechnung für Teilleistungen)
+			381 – Gutschrift (Korrekturrechnung oder Gutschrift im kaufmännischen Sinne)
+			389 – Selbst ausgestellte Rechnung (Gutschriftverfahren / Self-Billed) 
+			386 – Vorauszahlungsrechnung
+		*/
+		invoiceTypeCode = 380;
+
+		// BT-1*: Eindeutige Kennung der Rechnung, z.B. "INV-2026-0001". Muss einmalig sein und darf nicht erneut verwendet werden.
+		code = "INV-2026-0001";
+
+		// BT-2*: Datum der Rechnung, z.B. 1.2.2026
+		issueDate = "";
+
+		// BT-: Lieferdatum, z.B. 1.2.2026
+		deliveryDate = "";
+
+		// BT-5: Währungscode, z.B. "EUR" für Euro (default)
+		currency = "EUR";
+
+		// BT-9*: Datum, bis zu dem die Zahlung fällig ist, z.B. 10.2.2026
+		dueDate = "";
+
+		// BT-20: Payment terms, z.B. "3% Skonto bei Zahlung innerhalb von 10 Tagen, netto zahlbar innerhalb von 30 Tagen"
+		paymentTerms = ""
+
+
+		/*	BG-4, BG-5, BG-7: Verkäufer
+			————————————————————————————————————————————————————————————————————————————————————————————————————————
+			Die Werte können hier auch statisch eingetragen werden. Zu besseren Bearbeitung oder bei unterschiedlichen 
+			Absendern/Mandanten können sie aber auch aus einem Datensatz bezogen werden. 
+		*/
+
+		// BT-27*: Name, z.B. "Musterhandel GmbH". Sollte den offiziellen Firmennamen enthalten und kann auch den Handelsnamen beinhalten.
+		sellerName = "Musterhandel GmbH";
+
+		// BT-31*: Umsatzsteuer-Identifikationsnummer, z.B. "DE123456789"
+		sellerVatId = "DE123456789";
+
+		//BT-35*: Straße und Hausnummer, z.B. "Chausseestraße 42"
+		sellerStreet = "Chausseestraße 42";
+
+		// BT-38*: Postleitzahl, z.B. "10115"
+		sellerPostCode = "10115";
+
+		// BT-37*: Ort, z.B. "Berlin"
+		sellerCity = "Berlin";
+
+		// BT-39*: Land, z.B. "DE"
+		sellerCountryCode = "DE";
+
+		// BT-41*: Ansprechpartner, z.B. "Max Mustermann"
+		sellerContact = "Max Mustermann";
+
+		// BT-42*: Telefonnummer, z.B. "+49 30 12345678"
+		sellerPhone = "+49 30 12345678";
+
+		// BT-43*: E-Mail-Adresse, z.B. "info@fmgarage.com"
+		sellerEmail = "info@fmgarage.com";
+
+		// BT-84*: IBAN des Zahlungskontos, z.B. "DE89370400440532013000"
+		sellerIban = "DE89370400440532013000";
+
+		// BT-86: BIC des Zahlungsdienstleister, z.B. "COBADEFFXXX"
+		sellerBic = "COBADEFFXXX";
+
+
+
+
+		/*	BG-7: Käufer
+			————————————————————————————————————————————————————————————————————————————————————————————————————————
+			Die Werte werden aus dem Kunden-, besser noch aus dem Rechnungsdatensatz bezogen. 
+		*/
+
+		// BT-10: Kundenreferenz, z.B. Leitweg-ID für öffentliche Auftraggeber
+		// * nur in XRechnung. Optional in Factur-X/ZUGFeRD.
+		buyerReference = "Leitweg-ID-04011000-12345-06";
+
+		// BT-44*: Name, z.B. "Beispiel AG"
+		buyerName = "Beispiel AG";
+
+		// BT-41*: Ansprechpartner, z.B. "Erika Mustermann"
+		buyerContact = "Erika Mustermann";
+
+		// BT-48: Umsatzsteuer-Identifikationsnummer, z.B. "DE987654321"
+		// * nur in XRechnung. Optional in Factur-X/ZUGFeRD. 
+		buyerVatId = "DE1234567890";
+
+		// BT-49: Elektronische Peppol-Adresse des Erwerbers, z.B. 0204:991-12345-XX
+		// * in UBL, XRECHNUNG-UBL
+		buyerEndpointId = "";
+
+		// BT-50*: Straße und Hausnummer, z.B. "Musterstraße 1"
+		buyerStreet = "Musterstraße 1";
+
+		// BT-53*: Postleitzahl, z.B. "80331"
+		buyerPostCode = "80331";
+
+		// BT-52*: Ort, z.B. "München"
+		buyerCity = "München";
+
+
+		/*	BG-16: Zahlungsanweisungen
+			————————————————————————————————————————————————————————————————————————————————————————————————————————
+		*/
+
+		// BT-81*: Code für die Zahlungsweise, z.B. "58" für Überweisung
+		paymentMeansCode = "58"; 
+
+		// BT-82: Beschreibung der Zahlungsweise, z.B. "SEPA-Überweisung"
+//		paymentMeans = "SEPA-Überweisung";
+
+		// BT-83: Zahlungsreferenz, z.B. "Rechnung INV-2026-0001"
+		paymentReference = "Rechnung INV-2026-0001"
+
+	];
+
+	JSONSetElement ( $FXInvoice;
+		[ "format"; format; JSONString ];
+		[ "invoiceTypeCode"; invoiceTypeCode; JSONString ];
+		[ "code"; code; JSONString ];
+		[ "issueDate";issueDate; JSONNumber ];
+		[ "deliveryDate"; deliveryDate; JSONNumber ];
+		[ "currency"; currency; JSONString ];
+		[ "dueDate"; dueDate; Falls( nicht istleer( dueDate ); JSONNumber; JSONNull ) ];
+		[ "paymentMeansCode"; paymentMeansCode; JSONString ];
+		[ "paymentTerms"; paymentTerms; JSONString ];
+		[ "paymentReference"; paymentReference; JSONString ];
+		[ "sellerName"; sellerName; JSONString ];
+		[ "sellerVatId"; sellerVatId; JSONString ];
+		[ "sellerStreet"; sellerStreet; JSONString ];
+		[ "sellerPostCode"; sellerPostCode; JSONString ];
+		[ "sellerCity"; sellerCity; JSONString ];
+		[ "sellerCountryCode"; sellerCountryCode; JSONString ];
+		[ "sellerContact"; sellerContact; JSONString ];
+		[ "sellerPhone"; sellerPhone; JSONString ];
+		[ "sellerEmail"; sellerEmail; JSONString ];
+		[ "sellerIban"; sellerIban; JSONString ];
+		[ "sellerBic"; sellerBic; JSONString ];
+		[ "buyerReference"; buyerReference; JSONString ];
+		[ "buyerName"; buyerName; JSONString ];
+		[ "buyerContact"; buyerContact; JSONString ];
+		[ "buyerVatId"; buyerVatId; JSONString ];
+		[ "buyerStreet"; buyerStreet; JSONString ];
+		[ "buyerPostCode"; buyerPostCode; JSONString ];
+		[ "buyerCity"; buyerCity; JSONString ];
+		[ "settings"; $FXInvoice.settings; JSONObject ];
+		[ "lines"; $FXInvoice.lines; JSONArray ]
+	)
+)

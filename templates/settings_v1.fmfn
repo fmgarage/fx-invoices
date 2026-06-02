@@ -1,0 +1,52 @@
+/*	settings_v1.fmfn
+	Erzeugt das Settings-Object
+
+	@todo logging
+	@todo debug, display errors
+*/
+Let(
+	[
+		/*	License, Updates
+		*/
+		email = "nils.waldherr@fmgarage.com";
+		serial = "124567890";
+		check_for_updates = 1;
+
+		/*	method for calling the e-invoice-eu library	
+			cli: call the command line interface, needs a plugin like MBS or BaseElements
+			http: call the local webserver, musst be installed and running
+			empbedded: call the javascript library directly using a web viewer, works only on client
+		*/
+		api_method = "embedded";
+
+		/*	Plugin for calling the CLI, only needed if api_method is "cli"
+			options are "MBS" or "BaseElements"
+		*/
+		plugin = "";
+
+		/*	Error Reporting
+			if something goes wron in FMInvoice, the script will return detailled information about the error.
+			This can either be done using a simple text message, starting with "ERROR: ..." or by returning a 
+			JSON object with the key "SError", which contains all the details about the error. The latter is 
+			especially useful for developers, as it allows to handle different types of errors in a more sophisticated way.
+
+			You can catch the exception manually or you can use our SError custom functions
+		*/
+		error_reporting = "json"
+
+		/*	Use local library
+			when using the embedded method, by default the javascript library is loaded from a CDN. 
+		*/
+		use_local_library = 0
+
+	];
+	JSONSetElement ( "" ;
+		[ "email"; email; JSONString ];
+		[ "serial"; serial; JSONString ];
+		[ "check_for_updates"; check_for_updates; JSONBoolean ];
+		[ "api_method"; api_method; JSONString ];
+		[ "use_local_library"; use_local_library; JSONBoolean ];
+		[ "plugin"; plugin; JSONString ];
+		[ "error_reporting"; error_reporting; JSONString ]
+	)
+)

@@ -1,0 +1,50 @@
+/* 
+	Erzeugt die JSON-Parameter für das Script FXInvoices.addLine()
+	Plichtfelder nach EN16931 sind mit * gekennzeichnet
+	
+	Version 1.0, Stand 22.05.2026
+	
+ */
+Let(
+	[
+		// BT-153*: Artikelbezeichnung
+		name = "";
+
+		// BT-154: Artikelbeschreibung
+		description = "";
+
+		// BT-155: Artikelnummer
+		sku = "";
+
+		// BT-129: Menge, default 1
+		quantity = 1;
+
+		// BT-130: Mengeneinheit, HUR für Stunden, C62 für Stück (default), KGM für Kilogramm
+		unitCode = ""; 
+
+		// BT-146*: Einzelpreis netto
+		unitPriceAmount = "";
+
+		// BT-149: Artikel-Preiseinheit, z.B. 100 für Preise pro 100 Stück
+		baseQuantity = 1;
+
+		// BT-119*: Mehrwertsteuersatz in Prozent, z.B. 19 oder 7
+		taxRate = 19;
+
+		// BT-118: Steuerschlüssel, z.B. 'S' für Standardsteuersatz (default), 'S' für ermäßigter Steuersatz, 'O' für steuerfrei
+		// https://www.invoice-converter.com/en/resources/xrechnung/bt-118-vat-category-code
+		// S, O, Z, AE, K, G, L, M
+		taxCategory = ""
+
+	];
+	JSONSetElement ( "{}" ;
+		[ "name" ; name ; JSONString ];
+		[ "description" ; description ; JSONString ];
+		[ "quantity" ; quantity ; JSONNumber ];
+		[ "unitCode" ; unitCode ; JSONString ];
+		[ "unitPriceAmount" ; unitPriceAmount ; JSONNumber ];
+		[ "baseQuantity" ; baseQuantity ; JSONNumber ];
+		[ "taxRate" ; taxRate ; JSONNumber ];
+		[ "taxCategory" ; taxCategory ; JSONString ]
+	)
+)
