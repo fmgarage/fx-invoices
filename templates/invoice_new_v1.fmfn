@@ -97,7 +97,7 @@ Let(
 		sellerPhone = "+49 30 12345678";
 
 		// BT-43*: E-Mail-Adresse, z.B. "info@fmgarage.com"
-		sellerEmail = "info@fmgarage.com";
+		sellerEmail = "info@mail.com";
 
 		// BT-84*: IBAN des Zahlungskontos, z.B. "DE89370400440532013000"
 		sellerIban = "DE89370400440532013000";
@@ -147,9 +147,6 @@ Let(
 
 		// BT-81*: Code für die Zahlungsweise, z.B. "58" für Überweisung
 		paymentMeansCode = "58"; 
-
-		// BT-82: Beschreibung der Zahlungsweise, z.B. "SEPA-Überweisung"
-//		paymentMeans = "SEPA-Überweisung";
 
 		// BT-83: Zahlungsreferenz, z.B. "Rechnung INV-2026-0001"
 		paymentReference = "Rechnung INV-2026-0001"
