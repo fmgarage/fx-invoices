@@ -26,7 +26,7 @@ Let(
 	];
 	JSONSetElement ( "" ;
 		[ "email"; email; JSONString ];
-		[ "license"; license; JSONString ];
+		[ "_license"; license; JSONString ];
 		[ "check_for_updates"; check_for_updates; JSONBoolean ]
 	)
 )
