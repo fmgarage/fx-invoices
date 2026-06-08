@@ -1,0 +1,60 @@
+/*	settings_v1.fmfn
+	Erzeugt das Settings-Object
+
+	@todo logging
+	@todo debug, display errors
+*/
+Let(
+	[
+		/*	License
+			set $license using an 'Insert Text' script step beforehand
+		*/
+		email = "";
+
+
+		/*	Updates
+			Field definitions and mappings will be constantly updated, so it's important to check for updates regularly.
+			0 = no update check, 
+			1 = check for updates on startup (default)
+			2 = install updates automatically
+		*/
+		check_for_updates = 1;
+
+		/*	method for calling the e-invoice-eu library	
+			empbedded (default): call the javascript library directly using a web viewer, only works on client
+			cli: call the command line interface, needs a plugin like MBS or BaseElements
+			http: call the local webserver, musst be installed and running
+		*/
+		api_method = "embedded";
+
+		/*	Plugin for calling the CLI, only needed if api_method is "cli"
+			options are "MBS" or "BaseElements"
+		*/
+		plugin = "";
+
+		/*	Error Reporting
+			if something goes wron in FMInvoice, the script will return an error message beginning with "ERROR: ...".
+			If you want more insight into the error, you can activate exceptions by setting this to true.
+
+			You can catch the exception manually or you can use our SError custom functions
+		*/
+		return_error_as_json = true;
+
+		/*	Use local library
+			when using the embedded method, by default the javascript library is loaded from a CDN. 
+			0 = load library from CDN (default),
+			1 = load library from local file
+		*/
+		use_local_library = 0
+
+	];
+	JSONSetElement ( "" ;
+		[ "email"; email; JSONString ];
+		[ "_license"; $license; JSONString ];
+		[ "check_for_updates"; check_for_updates; JSONNumber ];
+		[ "api_method"; api_method; JSONString ];
+		[ "use_local_library"; use_local_library; JSONBoolean ];
+		[ "plugin"; plugin; JSONString ];
+		[ "return_error_as_json"; return_error_as_json; JSONBoolean ]
+	)
+)

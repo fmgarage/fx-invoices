@@ -1,0 +1,56 @@
+{
+	"buyerCity": "Datenhofen",
+	"buyerContact": "",
+	"buyerName": "Mustergültig u. Sohn. GmbH",
+	"buyerPostCode": "12345",
+	"buyerReference": "123456789",
+	"buyerStreet": "Königsallee 104",
+	"buyerVatId": "DE158973555",
+	"code": "123456/260680001",
+	"currency": "EUR",
+	"deliveryDate": 0,
+	"dueDate": 739788,
+	"format": "Factur-X-EN16931",
+	"invoiceTypeCode": "380",
+	"issueDate": 739774,
+	"lines":
+	[
+		{
+			"baseQuantity": 1,
+			"name": "Schneidbrett 'Hackethal', 45x35x6cm",
+			"quantity": 1,
+			"taxCategory": "",
+			"taxRate": 19,
+			"unitCode": "C62",
+			"unitPriceAmount": 49
+		},
+		{
+			"baseQuantity": 1,
+			"name": "Gewürzregal 'Spicy'",
+			"quantity": 1,
+			"taxCategory": "",
+			"taxRate": 19,
+			"unitCode": "C62",
+			"unitPriceAmount": 19.99
+		}
+	],
+	"paymentMeansCode": "58",
+	"paymentReference": "",
+	"paymentTerms": "",
+	"sellerBic": "PBNKDEFF",
+	"sellerCity": "Hamburg",
+	"sellerContact": "Peter Holzig",
+	"sellerCountryCode": "DE",
+	"sellerEmail": "info@nordlicht-gmbh.de",
+	"sellerIban": "DE60100100112345678905",
+	"sellerName": "Nordlicht GmbH",
+	"sellerPhone": "040 123 456-0",
+	"sellerPostCode": "20457",
+	"sellerStreet": "Speicherstraße 12",
+	"sellerVatId": "DE15234567",
+	"settings":
+	{
+		"email": "info@fmgarage.com",
+		"_license": ""
+	}
+}

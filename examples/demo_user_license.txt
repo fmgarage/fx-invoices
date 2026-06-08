@@ -1,0 +1,28 @@
+FX Invoices User License
+
+Expiration Date: 2026-06-30
+Email: info@fmgarage.com
+Licensed Components: API
+Licensed Users: 10
+Hosting on Server: allowed
+
+
+Installation instructions:
+
+To install the license paste only text below into the "Insert Text" Script Step 
+of the example script. Use invoice.fmfn to include it in the API script call. 
+
+
+---------------------- BEGIN LICENSE -----------------------
+FXINV$1:R+Zs9hhDvGvkfoxawUIymX7AX8xYzX2TdH4ZIVX5fksTiwWtU38D
+K3poT1emEIXzVPa3xSdAy/2Jarv403vgxzwYWURCvn1RxCxCg45Z9+leMoCk
+75Dr86rehau/WA5uAIbyNtBkpY3nrf699ReLEFF1NVpM/2rWc90G8KmO3Ky5
+lKBP2LomMdWss+KFZIuIq1qPwcB2BbqChwB+1SSAIvBSAMPvz/SNAJw5KNNb
+X/849UWwMxRCuoT9K/tLaoCGpr89vA4Y7xPBbFWX+Zgpq7Bj7KPoAqla2qZ4
+ENszPQJrk5sgMHfE/RJO9ikoRlLgnlp1Cf5z/tWvBwzNC+ENCWmp3EPklNEw
+CyJxA9hqMKUB+taEVS+ZnX2oX84DB0OiX2hC6Yi8perBLzSFo3cgfE5IamOJ
+K8xDwVHUphLwhU+GPJKcMYAtvSOx2QWCS8lspYNSJ0PBZjQbyxbvvToxtS9Q
+19M82Al61Om6M3Fv3BzrwbmjPZwXH+miwGXommxEI+hQ+4WR7bSi02faRJY7
+ez7EJUwG2cR/YS6Gqfz0wROnNZsYohULglrbTG3iWl2ht6PNl9YZ1eeC1JBk
+LYfFb9sAgddz/Ob9KWdgOG4R8YponYKfKKo=sP+4NpfktDi5TZFc3An8mFNc
+----------------------- END LICENSE ------------------------

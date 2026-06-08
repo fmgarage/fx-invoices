@@ -182,7 +182,7 @@ Let(
 		[ "buyerStreet"; buyerStreet; JSONString ];
 		[ "buyerPostCode"; buyerPostCode; JSONString ];
 		[ "buyerCity"; buyerCity; JSONString ];
-		[ "settings"; $FXInvoice.settings; JSONObject ];
-		[ "lines"; $FXInvoice.lines; JSONArray ]
+		[ "settings"; $settings; JSONObject ];
+		[ "lines"; $lines; JSONArray ]
 	)
 )

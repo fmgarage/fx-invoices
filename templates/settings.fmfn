@@ -8,10 +8,10 @@
 */
 Let(
 	[
-		/*	License, Updates
+		/*	License
+			set $license using an 'Insert Text' script step beforehand
 		*/
 		email = "info@fmgarage.com";
-		license = "FXINV:iCmdYvtZWzGpBrl/cleT+DoUF8RYy8o5HFkZNgXblSQSnOq+YCRHIeyzw444ANX+H6H/47qskdG7yZnkknU2qj24UtIPHMP9yUVzHYd1i1Kpp7eA0JiPeiQHV5tQAis6Gf74uyWpOKUNDkDDHoNMUqp3lrSj5UTRxmtDLWAMWD2IYNOrE+kxQ70Nt35I";
 
 
 		/*	Updates
@@ -26,7 +26,7 @@ Let(
 	];
 	JSONSetElement ( "" ;
 		[ "email"; email; JSONString ];
-		[ "_license"; license; JSONString ];
-		[ "check_for_updates"; check_for_updates; JSONBoolean ]
+		[ "_license"; $license; JSONString ];
+		[ "check_for_updates"; check_for_updates; JSONNumber ]
 	)
 )
