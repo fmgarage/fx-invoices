@@ -1,24 +1,1 @@
-{
-	"appcastVersion": 2,
-	"product": "fx-invoice",
-	"latest": "0.9.1",
-	"changelogUrl": "https://github.com/OWNER/REPO/blob/main/CHANGELOG.md",
-	"bundleUrl": "https://raw.githubusercontent.com/fmgarage/fx-invoices/refs/heads/main/updates/bundle.txt",
-	"encID": "0",
-	"releases": [
-		{
-			"version": "0.9.1",
-			"date": 739775,
-			"sha256": "5d5b09f6dcb2d53a5fffc60c4ac0d55fabdf556069d6631545f42aa6e3500f2e",
-			"changes": [ ]
-		},
-		{
-			"version": "0.9.0",
-			"release": true,
-			"date": 739774,
-			"url": "https://github.com/.../releases/download/v0.9.0/FX_Invoices.zip",
-			"sha256": "13b1108a620635b1e6097af5a45e575d7e35781b457b3ae6ac0839c249074672",
-			"changes": [ ]
-		}
-	]
-}
+{	"bundleUrl" : "https://raw.githubusercontent.com/fmgarage/fx-invoices/refs/heads/main/updates/bundle.txt",	"keyID" : 1,	"latest" : 9001,	"product" : "fx-invoice",	"releases" : [],	"version" : 2}
