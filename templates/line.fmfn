@@ -2,7 +2,10 @@
 	Erzeugt die JSON-Parameter für das Script FXInvoices.addLine()
 	Plichtfelder nach EN16931 sind mit * gekennzeichnet
 	
-	Version 1.0, Stand 22.05.2026
+	Version 1.1, Stand 10.06.2026
+
+	Bitte immer das aktuelle Template verwenden:
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/line.fmfn
 	
  */
 Let(
@@ -10,10 +13,10 @@ Let(
 		// BT-153*: Artikelbezeichnung
 		name = "";
 
-		// BT-154: Artikelbeschreibung
+		// BT-154: Artikelbeschreibung (optional)
 		description = "";
 
-		// BT-155: Artikelnummer
+		// BT-155: Artikelnummer (optional)
 		sku = "";
 
 		// BT-129: Menge, default 1

@@ -2,13 +2,13 @@
 
 	Erzeugt die JSON-Parameter für das Script FXInvoices.new()
 	
-	Version 1.0, Stand 22.05.2026
+	Version 1.1, Stand 10.06.2026
 
-	prüfen: alle Variablen werden im JSON auch verwendet.
+	Bitte immer das aktuelle Template verwenden:
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/invoice.fmfn
+
 
 	@info https://e-rechnung-bund.de/app/uploads/2025/09/Uebersichtsliste-Eingabefelder-OZG-RE_092025.pdf
-
-	@fixme: pfad wieder raus?
 
 */
 
@@ -25,17 +25,11 @@ Let(
 			Factur-X-Extended    – ZUGFeRD/Factur-X Extended
 			Factur-X-XRechnung   – ZUGFeRD im XRechnung-Profil
 
-			nicht untersützt werden die Formate Factur-X-Minimum und Factur-X-BasicWL, da diese genaugenommen keine E-Rechnung im Sinne der EU-Richtlinie 2014/55/EU darstellen.
+			nicht untersützt werden die Formate Factur-X-Minimum und Factur-X-BasicWL, da diese 
+			genaugenommen keine E-Rechnung im Sinne der EU-Richtlinie 2014/55/EU darstellen.
 
 		*/
 		format = "Factur-X-EN16931";
-
-		/*	path: Pfad zum Speicherort der PDF-Datei
-
-			Der Pfad muss entweder vom Typ filemac: oder filewin: sein
-			Alternativ kann die Datei auch über das globale Containerfeld FXIvoice::a_pdf_in_ übergeben werden. In diesem Fall muss der Pfad hier leer gelassen werden.
-		*/
-		path = "";
 
 		/*	BT-3 (1..5): Code für den Rechnungstyp, z.B.:
 
@@ -50,16 +44,16 @@ Let(
 		// BT-1*: Eindeutige Kennung der Rechnung, z.B. "INV-2026-0001". Muss einmalig sein und darf nicht erneut verwendet werden.
 		code = "INV-2026-0001";
 
-		// BT-2*: Datum der Rechnung, z.B. 1.2.2026
+		// BT-2*: Datum der Rechnung (z.B. 1.2.2026). Hier einfach das Datumsfeld der Rechnung einsetzen.
 		issueDate = "";
 
-		// BT-: Lieferdatum, z.B. 1.2.2026
+		// BT-: Lieferdatum (z.B. 1.2.2026). Hier einfach das Datumsfeld einsetzen.
 		deliveryDate = "";
 
 		// BT-5: Währungscode, z.B. "EUR" für Euro (default)
 		currency = "EUR";
 
-		// BT-9*: Datum, bis zu dem die Zahlung fällig ist, z.B. 10.2.2026
+		// BT-9*: Datum, bis zu dem die Zahlung fällig ist, z.B. 10.2.2026 -> Datumsfeld
 		dueDate = "";
 
 		// BT-20: Payment terms, z.B. "3% Skonto bei Zahlung innerhalb von 10 Tagen, netto zahlbar innerhalb von 30 Tagen"
@@ -78,7 +72,7 @@ Let(
 		// BT-31*: Umsatzsteuer-Identifikationsnummer, z.B. "DE123456789"
 		sellerVatId = "DE123456789";
 
-		//BT-35*: Straße und Hausnummer, z.B. "Chausseestraße 42"
+		// BT-35*: Straße und Hausnummer, z.B. "Chausseestraße 42"
 		sellerStreet = "Chausseestraße 42";
 
 		// BT-38*: Postleitzahl, z.B. "10115"
