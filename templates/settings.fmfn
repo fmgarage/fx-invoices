@@ -20,7 +20,7 @@ Let(
 			1 = check for updates on startup (default)
 			2 = install updates automatically
 		*/
-		check_for_updates = 1;
+		check_for_updates = 1
 
 
 	];
