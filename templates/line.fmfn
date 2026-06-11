@@ -1,4 +1,5 @@
-/* 
+/*	Variable setzen [ $line ; Wert: inhalt dieser Datei ]
+	
 	Erzeugt die JSON-Parameter für das Script FXInvoices.addLine()
 	Plichtfelder nach EN16931 sind mit * gekennzeichnet
 	
