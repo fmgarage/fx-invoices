@@ -7,7 +7,7 @@ FX Invoice erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII, 
 ## Eigenschaften
 
 - **Keine Plugins** – arbeitet ausschließlich mit FileMaker-Bordmitteln.
-- **Keine Installation** auf Clients oder Server nötig.
+- **Keine Installation** von Tools und Bibliotheken auf Clients oder Server nötig.
 - **Lokale Verarbeitung** – auch bei Hosting auf einem FileMaker Server werden die Rechnungsdaten ausschließlich auf dem Client verarbeitet und verlassen diesen nicht.
 - **EN-16931-konform** in allen gängigen Formaten.
 - **Einfache In-App-Updates** – Aktualisierungen werden direkt in der Anwendung eingespielt.
@@ -45,7 +45,7 @@ Es dient dem Schutz der Datei auf Dateisystemebene; die eigentliche Zugangskontr
 
 Die erzeugten Rechnungen lassen sich unabhängig prüfen, z. B. mit:
 
-- **Quba-Viewer** – Anzeige und Validierung
+- **Quba-Viewer** – Anzeige und Validierung: https://quba-viewer.org
 - **E-Rechnungs-Validator**: <https://erechnungsvalidator.service-bw.de/>
 
 > **Wichtig:** Maßgeblich für das Rechtsgeschäft ist immer die XML-Datei, nicht das PDF. PDF und XML müssen inhaltlich übereinstimmen – prüfen Sie die erzeugten Ergebnisse daher sorgfältig.
@@ -72,4 +72,4 @@ FX Invoice ist ein kommerzielles Produkt. Siehe [LICENSE.md](LICENSE.md).
 
 ---
 
-© FMGarage e.K.
+© 2026 FMGarage e.K.
