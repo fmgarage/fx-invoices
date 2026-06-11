@@ -1,6 +1,6 @@
-/*	invoice_new_v1.fmfn
+/*	Variable setzen [ $invoice_json ; Wert: inhalt dieser Datei ]
 
-	Erzeugt die JSON-Parameter für das Script FXInvoices.new()
+	Erzeugt den Parameter für das Script FXInvoices.generate( $invoice_json )
 	
 	Version 1.1, Stand 10.06.2026
 
