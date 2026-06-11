@@ -72,12 +72,9 @@ Let(
 		// BT-31*: Umsatzsteuer-Identifikationsnummer, z.B. "DE123456789"
 		sellerVatId = "DE123456789";
 
-<<<<<<< Updated upstream
-=======
 		// BT-33: Weitere rechtliche Informationen (z.B. "Amtsgericht Hamburg, HRB 12345")
 		sellerLegalForm = "";
 		
->>>>>>> Stashed changes
 		// BT-35*: Straße und Hausnummer, z.B. "Chausseestraße 42"
 		sellerStreet = "Chausseestraße 42";
 
