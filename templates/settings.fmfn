@@ -1,10 +1,9 @@
-/*	settings.fmfn
+/*	Variable setzen [ $settings ; Wert: inhalt dieser Datei ]
+
 	Erzeugt das Settings-Object
 
 	@version 1.0.0
 
-	@todo logging
-	@todo debug, display errors
 */
 Let(
 	[
