@@ -35,6 +35,7 @@ Let(
 
 			380 – Handelsrechnung (Standardrechnung)
 			326 – Teilrechnung (Abschlagsrechnung für Teilleistungen)
+			380 – Schlussrechnung
 			381 – Gutschrift (Korrekturrechnung oder Gutschrift im kaufmännischen Sinne)
 			389 – Selbst ausgestellte Rechnung (Gutschriftverfahren / Self-Billed) 
 			386 – Vorauszahlungsrechnung
@@ -47,7 +48,7 @@ Let(
 		// BT-2*: Datum der Rechnung (z.B. 1.2.2026). Hier einfach das Datumsfeld der Rechnung einsetzen.
 		issueDate = "";
 
-		// BT-: Lieferdatum (z.B. 1.2.2026). Hier einfach das Datumsfeld einsetzen.
+		// BT-72: Lieferdatum (z.B. 1.2.2026). Hier einfach das Datumsfeld einsetzen.
 		deliveryDate = "";
 
 		// BT-5: Währungscode, z.B. "EUR" für Euro (default)
