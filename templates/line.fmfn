@@ -8,6 +8,8 @@
 	Bitte immer das aktuelle Template verwenden:
 	https://github.com/fmgarage/fx-invoices/blob/main/templates/line.fmfn
 	
+	@info https://e-rechnung-bund.de/app/uploads/2025/09/Uebersichtsliste-Eingabefelder-OZG-RE_092025.pdf
+	@info https://www.eu-rechnung.de/bt-rechnungsfelder
  */
 Let(
 	[
