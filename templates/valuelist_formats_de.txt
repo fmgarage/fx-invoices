@@ -1,0 +1,13 @@
+
+(ohne)
+-
+Factur-X-EN16931 (PDF)
+Factur-X-Basic (PDF)
+Factur-X-Extended (PDF)
+Factur-X-XRechnung (PDF)
+-
+XRECHNUNG-UBL
+XRECHNUNG-CII
+-
+UBL (Peppol)
+CII
