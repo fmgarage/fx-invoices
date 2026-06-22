@@ -59,7 +59,7 @@ Let(
 		dueDate = "";
 
 		// BT-20: Payment terms, z.B. "3% Skonto bei Zahlung innerhalb von 10 Tagen, netto zahlbar innerhalb von 30 Tagen"
-		paymentTermsText = "";
+		paymentTerms = "";
 
 		// BT-20: Payment terms Skonto fields, BaseValue is optional
 		paymentTermsSkontoDays = null;
