@@ -119,7 +119,7 @@ Let(
 
 		// BT-10: Kundenreferenz, z.B. Leitweg-ID für öffentliche Auftraggeber
 		// * nur in XRechnung. Optional in Factur-X/ZUGFeRD.
-		buyerReference = "Leitweg-ID-04011000-12345-06";
+		buyerReference = "(Leitweg-ID)";
 
 		// BT-44*: Name, z.B. "Beispiel AG"
 		buyerName = "Beispiel AG";
@@ -135,7 +135,7 @@ Let(
 		// * in UBL, XRECHNUNG-UBL
 		buyerEndpointId = "";
 
-		// BT-50*: Straße und Hausnummer, z.B. "Musterstraße 1"
+		// BT-50*: Straße und Hausnummer, z.B. "Musterstraße 1", alternativ Postfach (z.b. "Postfach 0123456")
 		buyerStreet = "Musterstraße 1";
 
 		// BT-53*: Postleitzahl, z.B. "80331"
