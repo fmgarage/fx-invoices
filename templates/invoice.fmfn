@@ -145,6 +145,12 @@ Let(
 		buyerCity = "München";
 
 
+
+		// BT-13: Bestellnummer, Auftragsnummer
+		orderReference = "";
+
+
+
 		/*	BG-16: Zahlungsanweisungen
 			————————————————————————————————————————————————————————————————————————————————————————————————————————
 		*/
@@ -187,6 +193,7 @@ Let(
 		[ "buyerStreet"; buyerStreet; JSONString ];
 		[ "buyerPostCode"; buyerPostCode; JSONString ];
 		[ "buyerCity"; buyerCity; JSONString ];
+		[ "orderReference"; orderReference; JSONString ];
 		[ "settings"; $settings; JSONObject ];
 		[ "lines"; $lines; JSONArray ]
 	)
