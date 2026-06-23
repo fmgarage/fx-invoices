@@ -1,0 +1,34 @@
+[
+    {
+        "type": "File",
+        "name": "/Users/nils/Documents/Git/fx-invoices-dev/custom-functions/new/FXInvoice.new_v3.fmfn",
+        "parent_id": null,
+        "workspaceRoot": "/Users/nils/Documents/Git/fx-invoices",
+        "workspacePath": "../fx-invoices-dev/custom-functions/new/FXInvoice.new_v3.fmfn",
+        "id": "tqJ0kpLrYTCuEZGi"
+    },
+    {
+        "type": "File",
+        "name": "/Users/nils/Documents/Git/fx-invoices/templates/invoice.fmfn",
+        "parent_id": null,
+        "workspaceRoot": "/Users/nils/Documents/Git/fx-invoices",
+        "workspacePath": "templates/invoice.fmfn",
+        "id": "L36RDTJ4t1hliNax"
+    },
+    {
+        "type": "File",
+        "name": "/Users/nils/Documents/Git/fx-invoices/templates/line.fmfn",
+        "parent_id": null,
+        "workspaceRoot": "/Users/nils/Documents/Git/fx-invoices",
+        "workspacePath": "templates/line.fmfn",
+        "id": "nDVCXoS2cKluT1a8"
+    },
+    {
+        "type": "File",
+        "name": "/Users/nils/Documents/Git/fx-invoices-dev/custom-functions/addLine/FXInvoice.addLine_v3.fmfn",
+        "parent_id": null,
+        "workspaceRoot": "/Users/nils/Documents/Git/fx-invoices",
+        "workspacePath": "../fx-invoices-dev/custom-functions/addLine/FXInvoice.addLine_v3.fmfn",
+        "id": "hFQ3jxIbOYr8cpfy"
+    }
+]
