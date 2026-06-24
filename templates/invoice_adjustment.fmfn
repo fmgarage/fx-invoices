@@ -1,0 +1,69 @@
+/*	Nachlässe und Zuschläge auf Rechnungsebene (BG-20, BG-21)
+	Version 1.3, Stand 24.06.2026
+	Bitte immer das aktuelle Template verwenden:
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/invoice_adjustment.fmfn
+
+	Mit * markierte Felder sind dann Pflicht, wenn diese Gruppe verwendet wird.
+
+	Dieses Template muss nach invoice_base gesetzt werden, für mehrere Preisanpassungen,
+	z.B. kombinierte Zuschläge und Rabatte, dieses Template einfach mehrfach setzen.
+
+	Implementierung:
+	Variable setzen [ $FXInvoice.json ; Wert: (dieses Template) ]
+
+*/
+
+Let(
+	[
+
+		/*	Nachlass (BG-20) oder Zuschlag (BG-21)
+			————————————————————————————————————————————————————————————————————
+		*/
+
+		// Preisanpassung ist ein Zuschlag (boolean)
+		isCharge = 1;
+
+		// BT-92*/BT-99*: Nachlassbetrag/Zuschlag ohne Umsatzsteuer
+		// ist percent gesetzt, wird amount ignoriert und neu berechnet
+		// nur positive Werte, Abschläge über isCharge = 0
+		amount = 0;
+
+		// BT-93/BT-100: Grundbetrag zu Berechnung des Nachlasses/Zuschlags
+		baseAmount = null;
+
+		// BT-94/BT-101: Prozentsatz zur Berechnung des Nachlasses/Zuschlags
+		// nur positive Werte, Abschläge über isCharge = 0
+		percent = null;
+
+		// BT-95*/BT-102*: Umsatzsteuerkategorie für den Nachlass/Zuschlag
+		taxCategory = "S";
+
+		// BT-96/BT-103: Umsatzsteuersatz für den Nachlass/Zuschlag
+		taxRate = 19;
+
+		// BT-97/BT-104: Grund für den Nachlass/Zuschlag in Textform
+		reason = "";
+
+		// BT-98/BT-105: Kodierter Grund für den Nachlass/Zuschlag
+		reasonCode = "";
+
+
+		/*	interne Berechnung für mehrere Preisanpassungen pro Rechnung
+			————————————————————————————————————————————————————————————————————
+		*/
+		path = "adjustments[" & $FXInvoice.adjustment_index & "].";
+		$FXInvoice.adjustment_index = $FXInvoice.adjustment_index+1
+
+	];
+
+	JSONSetElement ( $FXInvoice.json;
+		[ path & "isCharge"; isCharge; JSONBoolean ];
+		[ path & "amount"; amount; JSONNumber ];
+		[ path & "baseAmount"; baseAmount; JSONNumber ];
+		[ path & "percent"; percent; JSONNumber ];
+		[ path & "taxCategory"; taxCategory; JSONString ];
+		[ path & "taxRate"; taxRate; JSONNumber ];
+		[ path & "reason"; reason; JSONString ];
+		[ path & "reasonCode"; reasonCode; JSONString ]
+	)
+)

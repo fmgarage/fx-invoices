@@ -1,16 +1,15 @@
-/*	Variable setzen [ $invoice_json ; Wert: inhalt dieser Datei ]
+/*	Allgemeine Angaben zur Rechnung
+	Angaben zur Identität des Verkäufers
+	Angaben zur Identität des Käufers
 
-	Erzeugt den Parameter für das Script FXInvoices.generate( $invoice_json )
-	
 	Version 1.1, Stand 10.06.2026
-
 	Bitte immer das aktuelle Template verwenden:
-	https://github.com/fmgarage/fx-invoices/blob/main/templates/invoice.fmfn
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/invoice_base.fmfn
 
+	Implementierung:
+	Variable setzen [ $FXInvoice.json ; Wert: (dieses Template) ]
 
-	@info https://e-rechnung-bund.de/app/uploads/2025/09/Uebersichtsliste-Eingabefelder-OZG-RE_092025.pdf
-	@info https://www.eu-rechnung.de/bt-rechnungsfelder
-
+	Die Werte entweder hier direkt statisch setzen, $$ bzw. $variablen oder Felder einsetzen
 */
 
 Let(
@@ -91,7 +90,7 @@ Let(
 		// BT-37*: Ort, z.B. "Berlin"
 		sellerCity = "Berlin";
 
-		// BT-39*: Land, z.B. "DE"
+		// BT-39*: Land, z.B. "DE" (Codeliste ISO 3166-1 alpha-2)
 		sellerCountryCode = "DE";
 
 		// BT-41*: Ansprechpartner, z.B. "Max Mustermann"
@@ -124,7 +123,7 @@ Let(
 		// BT-44*: Name, z.B. "Beispiel AG"
 		buyerName = "Beispiel AG";
 
-		// BT-41*: Ansprechpartner, z.B. "Erika Mustermann"
+		// BT-56: Ansprechpartner, z.B. "Erika Mustermann"
 		buyerContact = "Erika Mustermann";
 
 		// BT-48: Umsatzsteuer-Identifikationsnummer, z.B. "DE987654321"
@@ -138,11 +137,17 @@ Let(
 		// BT-50*: Straße und Hausnummer, z.B. "Musterstraße 1", alternativ Postfach (z.b. "Postfach 0123456")
 		buyerStreet = "Musterstraße 1";
 
+		// BT-52*: Ort, z.B. "München"
+		buyerCity = "München";
+
 		// BT-53*: Postleitzahl, z.B. "80331"
 		buyerPostCode = "80331";
 
-		// BT-52*: Ort, z.B. "München"
-		buyerCity = "München";
+		// BT-54: Bundesland
+		buyerState = "";
+
+		// BT-55*: Land, z.B. "DE" (Codeliste ISO 3166-1 alpha-2)
+		buyerCountryCode = "DE"
 
 
 
@@ -161,9 +166,15 @@ Let(
 		// BT-83: Zahlungsreferenz, z.B. "Rechnung INV-2026-0001"
 		paymentReference = "Rechnung INV-2026-0001"
 
+
+
+		/*	interne Berechnung für mehrere Preisanpassungen pro Rechnung
+			————————————————————————————————————————————————————————————————————
+		*/
+		$FXInvoice.adjustment_index = 0
 	];
 
-	JSONSetElement ( $FXInvoice;
+	JSONSetElement ( "";
 		[ "format"; format; JSONString ];
 		[ "invoiceTypeCode"; invoiceTypeCode; JSONString ];
 		[ "code"; code; JSONString ];
@@ -193,6 +204,8 @@ Let(
 		[ "buyerStreet"; buyerStreet; JSONString ];
 		[ "buyerPostCode"; buyerPostCode; JSONString ];
 		[ "buyerCity"; buyerCity; JSONString ];
+		[ "buyerState"; buyerState; JSONString ];
+		[ "buyerCountryCode"; buyerCountryCode; JSONString ];
 		[ "orderReference"; orderReference; JSONString ];
 		[ "settings"; $settings; JSONObject ];
 		[ "lines"; $lines; JSONArray ]

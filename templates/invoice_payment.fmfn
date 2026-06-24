@@ -1,0 +1,82 @@
+/*	Zahlungsinformationen (BG-10, BG-16, BG-17, BG-18, BG-19)
+	Version 1.2, Stand 24.06.2026
+	Bitte immer das aktuelle Template verwenden:
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/invoice_payment.fmfn
+
+	Felder, die bereits im Base-Template gesetzt werden, sind hier auskommentiert 
+	(thematisch zugehörig, aber aktuell dort aktiv).
+
+	Mit * markierte Felder sind dann Pflicht, wenn diese Gruppe verwendet wird.
+*/
+
+Let(
+	[
+		// BT-59*: Name des abweichenden Zahlungsempfängers
+		payeeName = "Inkasso Service GmbH";
+		
+		// BT-60: Eindeutige Kennung für den Zahlungsempfänger
+		payeeId = "";
+
+		// BT-61: Erteilte Nummer einer Registerstelle für den Zahlungsempfänger
+		payeeLegalId = "";
+
+		// BT-19: Kontierungshinweis zur Rechnung für den Käufer
+		bookingReference = "";
+
+		// BT-20 (derzeit im Base): Zahlungsbedingungen und Skontohinweis
+		// paymentTerms = "Zahlbar innerhalb 30 Tagen";
+
+		// BT-81* (derzeit im Base): Kodierte Angabe der Zahlungsmethode
+		// paymentMeansCode = "58";
+
+		// BT-82: Verwendete Zahlungsmethode in Textform
+		paymentMeansText = "SEPA-Überweisung";
+
+		// BT-83 (derzeit im Base): Referenztext für die Zahlung (Verwendungszweck)
+		// paymentReference = "Rechnung INV-2026-0001";
+
+		// BT-84* (derzeit im Base): IBAN des Kontos, auf das die Zahlung erfolgen soll
+		// sellerIban = "DE89370400440532013000";
+
+		// BT-85: Inhaber des Kontos, auf das die Zahlung erfolgen soll
+		accountHolderName = "Musterhandel GmbH";
+
+		// BT-86 (derzeit im Base): Kennung des kontoführenden Instituts (BIC)
+		// sellerBic = "COBADEFFXXX";
+
+		// BT-87*: Kreditkartennummer, die für die Zahlung genutzt wurde
+		cardNumber = "";
+
+		// BT-88: Name des Inhabers der Kreditkarte
+		cardHolderName = "";
+
+		// BT-89*: Mandatsreferenz für Lastschriften
+		mandateReference = "";
+
+		// BT-90*: Gläubiger-ID für Lastschriften
+		creditorReference = "";
+
+		// BT-91*: IBAN des Kontos, vom dem die Lastschrift erfolgt
+		debitedAccountIban = ""
+
+	];
+
+	JSONSetElement ( $FXInvoice.json;
+		[ "payeeName"; payeeName; JSONString ];
+		[ "payeeId"; payeeId; JSONString ];
+		[ "payeeLegalId"; payeeLegalId; JSONString ];
+		[ "bookingReference"; bookingReference; JSONString ];
+		// [ "paymentTerms"; paymentTerms; JSONString ];
+		// [ "paymentMeansCode"; paymentMeansCode; JSONString ];
+		[ "paymentMeansText"; paymentMeansText; JSONString ];
+		// [ "paymentReference"; paymentReference; JSONString ];
+		// [ "sellerIban"; sellerIban; JSONString ];
+		[ "accountHolderName"; accountHolderName; JSONString ];
+		// [ "sellerBic"; sellerBic; JSONString ];
+		[ "cardNumber"; cardNumber; JSONString ];
+		[ "cardHolderName"; cardHolderName; JSONString ];
+		[ "mandateReference"; mandateReference; JSONString ];
+		[ "creditorReference"; creditorReference; JSONString ];
+		[ "debitedAccountIban"; debitedAccountIban; JSONString ]
+	)
+)

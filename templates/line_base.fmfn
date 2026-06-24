@@ -1,15 +1,9 @@
-/*	Variable setzen [ $line ; Wert: inhalt dieser Datei ]
-	
-	Erzeugt die JSON-Parameter für das Script FXInvoices.addLine()
-	Plichtfelder nach EN16931 sind mit * gekennzeichnet
+/*	Rechnungsposition
 	
 	Version 1.1, Stand 10.06.2026
-
 	Bitte immer das aktuelle Template verwenden:
-	https://github.com/fmgarage/fx-invoices/blob/main/templates/line.fmfn
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/line_base.fmfn
 	
-	@info https://e-rechnung-bund.de/app/uploads/2025/09/Uebersichtsliste-Eingabefelder-OZG-RE_092025.pdf
-	@info https://www.eu-rechnung.de/bt-rechnungsfelder
  */
 Let(
 	[
@@ -40,7 +34,13 @@ Let(
 		// BT-118: Steuerschlüssel, z.B. 'S' für Standardsteuersatz (default), 'S' für ermäßigter Steuersatz, 'O' für steuerfrei
 		// https://www.invoice-converter.com/en/resources/xrechnung/bt-118-vat-category-code
 		// S, O, Z, AE, K, G, L, M
-		taxCategory = ""
+		taxCategory = "";
+
+
+		/*	interne Berechnung für mehrere Preisanpassungen pro Position
+			————————————————————————————————————————————————————————————————————
+		*/
+		$FXInvoice.line.adjustment_index = 0
 
 	];
 	JSONSetElement ( "{}" ;

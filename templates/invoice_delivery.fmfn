@@ -1,0 +1,67 @@
+/*	Lieferinformationen und Lieferanschrift (BG-13, BG-14, BG-15)
+	Version 1.2, Stand 24.06.2026
+	Bitte immer das aktuelle Template verwenden:
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/invoice_delivery.fmfn
+
+	Felder, die bereits im Base-Template gesetzt werden, sind hier auskommentiert 
+	(thematisch zugehörig, aber aktuell dort aktiv).
+
+	Mit * markierte Felder sind dann Pflicht, wenn diese Gruppe verwendet wird.
+	
+*/
+
+Let(
+	[
+		// BT-72 (derzeit im Base): Datum der Lieferung oder Leistungserbringung
+		// deliveryDate = "";
+
+		// BT-73: Beginn des Abrechnungszeitraums für die Rechnung
+		invoicePeriodStart = "";
+
+		// BT-74: Ende des Abrechnungszeitraums für die Rechnung
+		invoicePeriodEnd = "";
+
+		// BT-70: Name des Empfängers der Ware oder Dienstleistung
+		deliveryName = "Beispiel AG – Lager Nord";
+
+		// BT-71: Eindeutige Kennung für die Lieferanschrift
+		deliveryLocationId = "";
+
+		// BT-75: Hauptzeile der Lieferanschrift (Adresszeile 1)
+		deliveryStreet = "Lagerstraße 7";
+
+		// BT-76: Zusätzliche Zeile der Lieferanschrift (Adresszeile 2)
+		deliveryStreet2 = "";
+
+		// BT-165: Zusätzliche Zeile der Lieferanschrift (Adresszeile 3)
+		deliveryStreet3 = "";
+
+		// BT-77*: Stadt oder Gemeinde der Lieferanschrift
+		deliveryCity = "Bremen";
+
+		// BT-78*: Postleitzahl der Lieferanschrift
+		deliveryPostCode = "28195";
+
+		// BT-79: Region oder Bundesland der Lieferanschrift
+		deliveryState = "";
+
+		// BT-80*: Land, in dem sich die Lieferanschrift befindet
+		deliveryCountryCode = "DE"
+
+	];
+
+	JSONSetElement ( $FXInvoice.json;
+		// [ "deliveryDate"; deliveryDate; JSONNumber ];
+		[ "invoicePeriodStart"; invoicePeriodStart; JSONNumber ];
+		[ "invoicePeriodEnd"; invoicePeriodEnd; JSONNumber ];
+		[ "deliveryName"; deliveryName; JSONString ];
+		[ "deliveryLocationId"; deliveryLocationId; JSONString ];
+		[ "deliveryStreet"; deliveryStreet; JSONString ];
+		[ "deliveryStreet2"; deliveryStreet2; JSONString ];
+		[ "deliveryStreet3"; deliveryStreet3; JSONString ];
+		[ "deliveryCity"; deliveryCity; JSONString ];
+		[ "deliveryPostCode"; deliveryPostCode; JSONString ];
+		[ "deliveryState"; deliveryState; JSONString ];
+		[ "deliveryCountryCode"; deliveryCountryCode; JSONString ]
+	)
+)

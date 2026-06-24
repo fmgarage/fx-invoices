@@ -1,0 +1,52 @@
+/*	Angaben zum steuerlichen Vertreter (BG-11, BG-12)
+	Version 1.2, Stand 24.06.2026
+	Bitte immer das aktuelle Template verwenden:
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/invoice_taxrep.fmfn
+	
+	Mit * markierte Felder sind dann Pflicht, wenn diese Gruppe verwendet wird.
+
+*/
+
+Let(
+	[
+		// BT-62*: Vollständiger Name des steuerlichen Vertreters
+		taxRepName = "Muster Steuerberatung GmbH";
+
+		// BT-63*: Umsatzsteuer-Identifikationsnummer des Verkäufers
+		taxRepVatId = "DE123456789";
+
+		// BT-64: Hauptzeile der Anschrift (Adresszeile 1)
+		taxRepStreet = "Beispielweg 5";
+
+		// BT-65: Zusätzliche Zeile der Anschrift (Adresszeile 2)
+		taxRepStreet2 = "";
+
+		// BT-164: Zusätzliche Zeile der Anschrift (Adresszeile 3)
+		taxRepStreet3 = "";
+
+		// BT-66: Stadt oder Gemeinde des steuerlichen Vertreters
+		taxRepCity = "Hamburg";
+
+		// BT-67: Postleitzahl des steuerlichen Vertreters
+		taxRepPostCode = "20095";
+
+		// BT-68: Region oder Bundesland des steuerlichen Vertreters
+		taxRepState = "";
+
+		// BT-69*: Land, in dem sich der steuerliche Vertreter befindet
+		taxRepCountryCode = "DE"
+
+	];
+
+	JSONSetElement ( $FXInvoice.json;
+		[ "taxRepName"; taxRepName; JSONString ];
+		[ "taxRepVatId"; taxRepVatId; JSONString ];
+		[ "taxRepStreet"; taxRepStreet; JSONString ];
+		[ "taxRepStreet2"; taxRepStreet2; JSONString ];
+		[ "taxRepStreet3"; taxRepStreet3; JSONString ];
+		[ "taxRepCity"; taxRepCity; JSONString ];
+		[ "taxRepPostCode"; taxRepPostCode; JSONString ];
+		[ "taxRepState"; taxRepState; JSONString ];
+		[ "taxRepCountryCode"; taxRepCountryCode; JSONString ]
+	)
+)

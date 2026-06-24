@@ -1,0 +1,61 @@
+/*	Nachlässe und Zuschläge auf Positionsebene (BG-27, BG-28)
+	Version 1.2, Stand 24.06.2026
+	Bitte immer das aktuelle Template verwenden:
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/line_adjustment.fmfn
+	
+	Mit * markierte Felder sind dann Pflicht, wenn diese Gruppe verwendet wird.
+
+	Dieses Template muss nach line_base gesetzt werden, für mehrere Preisanpassungen,
+	z.B. kombinierte Zuschläge und Rabatte, dieses Template einfach mehrfach setzen.
+
+	Implementierubng:
+	Variable setzen [ $FXInvoice.line.json ; Wert: (dieses Template) ]
+
+*/
+
+Let(
+	[
+
+		/*	Nachlass (BG-27) oder Zuschlag (BG-28)
+			————————————————————————————————————————————————————————————————————
+		*/
+
+		// Preisanpassung ist ein Zuschlag (boolean)
+		isCharge = 1;
+
+		// BT-136*/BT-141*: Nachlassbetrag/Zuschlag ohne Umsatzsteuer
+		// ist percent gesetzt, wird amount ignoriert und neu berechnet
+		// nur positive Werte, Abschläge über isCharge = 0
+		amount = 0;
+
+		// BT-137/BT-142: Grundbetrag zu Berechnung des Nachlasses/Zuschlags
+		baseAmount = null;
+
+		// BT-138/BT-143: Prozentsatz zur Berechnung des Nachlasses/Zuschlags
+		// nur positive Werte, Abschläge über isCharge = 0
+		percent = null;
+
+		// BT-139/BT-144: Grund für den Nachlass/Zuschlag in Textform
+		reason = "";
+
+		// BT-140/BT-145: Kodierter Grund für den Nachlass/Zuschlag
+		reasonCode = "";
+		
+
+		/*	interne Berechnung für mehrere Preisanpassungen pro Position
+			————————————————————————————————————————————————————————————————————
+		*/
+		path = "adjustments[" & $FXInvoice.line.adjustment_index & "].";
+		$FXInvoice.line.adjustment_index = $FXInvoice.line.adjustment_index+1
+
+	];
+
+	JSONSetElement ( $FXInvoice.line.json;
+		[ path & "isCharge"; isCharge; JSONBoolean ];
+		[ path & "amount"; amount; JSONNumber ];
+		[ path & "baseAmount"; baseAmount; JSONNumber ];
+		[ path & "percent"; percent; JSONNumber ];
+		[ path & "reason"; reason; JSONString ];
+		[ path & "reasonCode"; reasonCode; JSONString ]
+	)
+)
