@@ -20,10 +20,6 @@ Ohne schriftliche Zustimmung von FMGarage e.K. ist insbesondere nicht gestattet:
 
 Diese Software nutzt Open-Source-Bibliotheken, die eigenen Lizenzbedingungen unterliegen. Siehe THIRD-PARTY-NOTICES.md für Details.
 
-## Lizenzerwerb
-
-Informationen zu Lizenzmodellen und Preisen: https://fmgarage.com/fx-invoice
-
 ## Kontakt
 
 FMGarage e.K.
