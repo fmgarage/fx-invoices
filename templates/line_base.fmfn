@@ -7,6 +7,8 @@
  */
 Let(
 	[
+		// BT-126: wird automatisch geseztzt
+
 		// BT-153*: Artikelbezeichnung
 		name = "";
 
@@ -14,7 +16,10 @@ Let(
 		description = "";
 
 		// BT-155: Artikelnummer (optional)
-		sku = "";
+		sellerItemId = "";
+
+		// BT-156: Artikelnummer beim Kunden
+		buyerItemId = "";
 
 		// BT-129: Menge, default 1
 		quantity = 1;
@@ -46,6 +51,8 @@ Let(
 	JSONSetElement ( "{}" ;
 		[ "name" ; name ; JSONString ];
 		[ "description" ; description ; JSONString ];
+		[ "sellerItemId" ; sellerItemId ; JSONString ];
+		[ "buyerItemId" ; buyerItemId ; JSONString ];
 		[ "quantity" ; quantity ; JSONNumber ];
 		[ "unitCode" ; unitCode ; JSONString ];
 		[ "unitPriceAmount" ; unitPriceAmount ; JSONNumber ];
