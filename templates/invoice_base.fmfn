@@ -75,6 +75,9 @@ Let(
 		// BT-27*: Name, z.B. "Musterhandel GmbH". Sollte den offiziellen Firmennamen enthalten und kann auch den Handelsnamen beinhalten.
 		sellerName = "Musterhandel GmbH";
 
+		// BT-28: Seller Trading Name. 
+		sellerTradingName = "";
+
 		// BT-31*: Umsatzsteuer-Identifikationsnummer, z.B. "DE123456789"
 		sellerVatId = "DE123456789";
 
@@ -184,8 +187,12 @@ Let(
 		[ "dueDate"; dueDate; Falls( nicht istleer( dueDate ); JSONNumber; JSONNull ) ];
 		[ "paymentMeansCode"; paymentMeansCode; JSONString ];
 		[ "paymentTerms"; paymentTerms; JSONString ];
+		[ "paymentTermsSkontoDays"; paymentTermsSkontoDays; JSONNumber ];
+		[ "paymentTermsSkontoPercent"; paymentTermsSkontoPercent; JSONNumber ];
+		[ "paymentTermsSkontoBaseValue"; paymentTermsSkontoBaseValue; JSONNumber ];
 		[ "paymentReference"; paymentReference; JSONString ];
 		[ "sellerName"; sellerName; JSONString ];
+		[ "sellerTradingName"; sellerTradingName; JSONString ];
 		[ "sellerVatId"; sellerVatId; JSONString ];
 		[ "sellerLegalForm"; sellerLegalForm; JSONString ];
 		[ "sellerStreet"; sellerStreet; JSONString ];
