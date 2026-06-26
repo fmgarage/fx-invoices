@@ -27,6 +27,7 @@ Let(
 		// paymentTerms = "Zahlbar innerhalb 30 Tagen";
 
 		// BT-81* (derzeit im Base): Kodierte Angabe der Zahlungsmethode
+		// https://docs.peppol.eu/poacc/billing/3.0/codelist/UNCL4461/
 		// paymentMeansCode = "58";
 
 		// BT-82: Verwendete Zahlungsmethode in Textform

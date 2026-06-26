@@ -50,7 +50,7 @@ Let(
 
 	];
 
-	JSONSetElement ( $FXInvoice.line.json;
+	JSONSetElement ( $FXInvoice.line.json ;
 		[ path & "isCharge"; isCharge; JSONBoolean ];
 		[ path & "amount"; amount; JSONNumber ];
 		[ path & "baseAmount"; baseAmount; JSONNumber ];

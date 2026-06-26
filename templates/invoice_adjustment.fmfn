@@ -29,11 +29,11 @@ Let(
 		amount = 0;
 
 		// BT-93/BT-100: Grundbetrag zu Berechnung des Nachlasses/Zuschlags
-		baseAmount = null;
+		baseAmount = "";
 
 		// BT-94/BT-101: Prozentsatz zur Berechnung des Nachlasses/Zuschlags
 		// nur positive Werte, Abschläge über isCharge = 0
-		percent = null;
+		percent = "";
 
 		// BT-95*/BT-102*: Umsatzsteuerkategorie für den Nachlass/Zuschlag
 		taxCategory = "S";

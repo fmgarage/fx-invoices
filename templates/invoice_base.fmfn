@@ -43,7 +43,7 @@ Let(
 		invoiceTypeCode = 380;
 
 		// BT-1*: Eindeutige Kennung der Rechnung, z.B. "INV-2026-0001". Muss einmalig sein und darf nicht erneut verwendet werden.
-		code = "INV-2026-0001";
+		code = "(code)";
 
 		// BT-2*: Datum der Rechnung (z.B. 1.2.2026). Hier einfach das Datumsfeld der Rechnung einsetzen.
 		issueDate = "";
@@ -65,6 +65,12 @@ Let(
 		paymentTermsSkontoPercent = null;
 		paymentTermsSkontoBaseValue = null;
 
+		// BT-120: Grund für die Ausnahme von der Umsatzsteuer (Text)
+		taxExemptionReason = "";
+
+		// BT-121: Grund für die Ausnahme von der Umsatzsteuer (Code) - z.B. AE, K, G, S
+		taxExemptionReasonCode = "";
+
 
 		/*	BG-4, BG-5, BG-7: Verkäufer
 			————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -73,43 +79,43 @@ Let(
 		*/
 
 		// BT-27*: Name, z.B. "Musterhandel GmbH". Sollte den offiziellen Firmennamen enthalten und kann auch den Handelsnamen beinhalten.
-		sellerName = "Musterhandel GmbH";
+		sellerName = "(sellerName)";
 
 		// BT-28: Seller Trading Name. 
 		sellerTradingName = "";
 
 		// BT-31*: Umsatzsteuer-Identifikationsnummer, z.B. "DE123456789"
-		sellerVatId = "DE123456789";
+		sellerVatId = "(sellerVatId)";
 
 		// BT-33: Weitere rechtliche Informationen (z.B. "Amtsgericht Hamburg, HRB 12345")
 		sellerLegalForm = "";
 		
 		// BT-35*: Straße und Hausnummer, z.B. "Chausseestraße 42"
-		sellerStreet = "Chausseestraße 42";
-
-		// BT-38*: Postleitzahl, z.B. "10115"
-		sellerPostCode = "10115";
+		sellerStreet = "(sellerStreet)";
 
 		// BT-37*: Ort, z.B. "Berlin"
-		sellerCity = "Berlin";
+		sellerCity = "(sellerCity)";
+
+		// BT-38*: Postleitzahl, z.B. "10115"
+		sellerPostCode = "(sellerPostCode)";
 
 		// BT-39*: Land, z.B. "DE" (Codeliste ISO 3166-1 alpha-2)
-		sellerCountryCode = "DE";
+		sellerCountryCode = "(sellerCountryCode)";
 
 		// BT-41*: Ansprechpartner, z.B. "Max Mustermann"
-		sellerContact = "Max Mustermann";
+		sellerContact = "(sellerContact)";
 
 		// BT-42*: Telefonnummer, z.B. "+49 30 12345678"
-		sellerPhone = "+49 30 12345678";
+		sellerPhone = "(sellerPhone)";
 
 		// BT-43*: E-Mail-Adresse, z.B. "info@fmgarage.com"
-		sellerEmail = "info@mail.com";
+		sellerEmail = "(sellerEmail)";
 
 		// BT-84*: IBAN des Zahlungskontos, z.B. "DE89370400440532013000"
-		sellerIban = "DE89370400440532013000";
+		sellerIban = "(sellerIban)";
 
 		// BT-86: BIC des Zahlungsdienstleister, z.B. "COBADEFFXXX"
-		sellerBic = "COBADEFFXXX";
+		sellerBic = "";
 
 
 
@@ -121,36 +127,36 @@ Let(
 
 		// BT-10: Kundenreferenz, z.B. Leitweg-ID für öffentliche Auftraggeber
 		// * nur in XRechnung. Optional in Factur-X/ZUGFeRD.
-		buyerReference = "(Leitweg-ID)";
+		buyerReference = "(buyerReference)";
 
 		// BT-44*: Name, z.B. "Beispiel AG"
-		buyerName = "Beispiel AG";
+		buyerName = "(buyerName)";
 
 		// BT-56: Ansprechpartner, z.B. "Erika Mustermann"
-		buyerContact = "Erika Mustermann";
+		buyerContact = "";
 
 		// BT-48: Umsatzsteuer-Identifikationsnummer, z.B. "DE987654321"
 		// * nur in XRechnung. Optional in Factur-X/ZUGFeRD. 
-		buyerVatId = "DE1234567890";
+		buyerVatId = "";
 
 		// BT-49: Elektronische Peppol-Adresse des Erwerbers, z.B. 0204:991-12345-XX
 		// * in UBL, XRECHNUNG-UBL
 		buyerEndpointId = "";
 
 		// BT-50*: Straße und Hausnummer, z.B. "Musterstraße 1", alternativ Postfach (z.b. "Postfach 0123456")
-		buyerStreet = "Musterstraße 1";
+		buyerStreet = "(buyerStreet)";
 
 		// BT-52*: Ort, z.B. "München"
-		buyerCity = "München";
+		buyerCity = "(buyerCity)";
 
 		// BT-53*: Postleitzahl, z.B. "80331"
-		buyerPostCode = "80331";
+		buyerPostCode = "(buyerPostCode)";
 
 		// BT-54: Bundesland
 		buyerState = "";
 
 		// BT-55*: Land, z.B. "DE" (Codeliste ISO 3166-1 alpha-2)
-		buyerCountryCode = "DE"
+		buyerCountryCode = "(buyerCountryCode)"
 
 
 
@@ -167,7 +173,7 @@ Let(
 		paymentMeansCode = "58"; 
 
 		// BT-83: Zahlungsreferenz, z.B. "Rechnung INV-2026-0001"
-		paymentReference = "Rechnung INV-2026-0001"
+		paymentReference = "(paymentReference)"
 
 
 
@@ -190,6 +196,8 @@ Let(
 		[ "paymentTermsSkontoDays"; paymentTermsSkontoDays; JSONNumber ];
 		[ "paymentTermsSkontoPercent"; paymentTermsSkontoPercent; JSONNumber ];
 		[ "paymentTermsSkontoBaseValue"; paymentTermsSkontoBaseValue; JSONNumber ];
+		[ "taxExemptionReason"; taxExemptionReason; JSONString ];
+		[ "taxExemptionReasonCode"; taxExemptionReasonCode; JSONString ];
 		[ "paymentReference"; paymentReference; JSONString ];
 		[ "sellerName"; sellerName; JSONString ];
 		[ "sellerTradingName"; sellerTradingName; JSONString ];

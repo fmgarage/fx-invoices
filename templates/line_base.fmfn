@@ -3,14 +3,22 @@
 	Version 1.1, Stand 10.06.2026
 	Bitte immer das aktuelle Template verwenden:
 	https://github.com/fmgarage/fx-invoices/blob/main/templates/line_base.fmfn
-	
+
+	Implementierung:
+	Variable setzen [ $FXInvoice.line.json ; Wert: (dieses Template) ]
+
+	Die Werte entweder hier 
+		- direkt statisch setzen, 
+		- über $$ bzw. $variablen oder 
+		- Felder einsetzen
+
  */
 Let(
 	[
 		// BT-126: wird automatisch geseztzt
 
 		// BT-153*: Artikelbezeichnung
-		name = "";
+		name = "(name)";
 
 		// BT-154: Artikelbeschreibung (optional)
 		description = "";
@@ -28,7 +36,7 @@ Let(
 		unitCode = ""; 
 
 		// BT-146*: Einzelpreis netto
-		unitPriceAmount = "";
+		unitPriceAmount = 0;
 
 		// BT-149: Artikel-Preiseinheit, z.B. 100 für Preise pro 100 Stück
 		baseQuantity = 1;
