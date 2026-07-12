@@ -61,9 +61,9 @@ Let(
 		paymentTerms = "";
 
 		// BT-20: Payment terms Skonto fields, BaseValue is optional
-		paymentTermsSkontoDays = null;
-		paymentTermsSkontoPercent = null;
-		paymentTermsSkontoBaseValue = null;
+		paymentTermsSkontoDays = "";
+		paymentTermsSkontoPercent = "";
+		paymentTermsSkontoBaseValue = "";
 
 		// BT-120: Grund für die Ausnahme von der Umsatzsteuer (Text)
 		taxExemptionReason = "";
@@ -156,9 +156,7 @@ Let(
 		buyerState = "";
 
 		// BT-55*: Land, z.B. "DE" (Codeliste ISO 3166-1 alpha-2)
-		buyerCountryCode = "(buyerCountryCode)"
-
-
+		buyerCountryCode = "(buyerCountryCode)";
 
 		// BT-13: Bestellnummer, Auftragsnummer
 		orderReference = "";
@@ -173,7 +171,7 @@ Let(
 		paymentMeansCode = "58"; 
 
 		// BT-83: Zahlungsreferenz, z.B. "Rechnung INV-2026-0001"
-		paymentReference = "(paymentReference)"
+		paymentReference = "(paymentReference)";
 
 
 
@@ -190,12 +188,12 @@ Let(
 		[ "issueDate";issueDate; JSONNumber ];
 		[ "deliveryDate"; deliveryDate; JSONNumber ];
 		[ "currency"; currency; JSONString ];
-		[ "dueDate"; dueDate; Falls( nicht istleer( dueDate ); JSONNumber; JSONNull ) ];
+		[ "dueDate"; dueDate; Case( not IsEmpty( dueDate ); JSONNumber; JSONNull ) ];
 		[ "paymentMeansCode"; paymentMeansCode; JSONString ];
 		[ "paymentTerms"; paymentTerms; JSONString ];
 		[ "paymentTermsSkontoDays"; paymentTermsSkontoDays; JSONNumber ];
 		[ "paymentTermsSkontoPercent"; paymentTermsSkontoPercent; JSONNumber ];
-		[ "paymentTermsSkontoBaseValue"; paymentTermsSkontoBaseValue; JSONNumber ];
+		[ "paymentTermsSkontoBaseValue"; paymentTermsSkontoBaseValue; Case( not IsEmpty( paymentTermsSkontoBaseValue ); JSONNumber; JSONNull ) ];
 		[ "taxExemptionReason"; taxExemptionReason; JSONString ];
 		[ "taxExemptionReasonCode"; taxExemptionReasonCode; JSONString ];
 		[ "paymentReference"; paymentReference; JSONString ];
