@@ -1,6 +1,6 @@
 # Templates
 
-Die Templates sind Vorlagen für den **„Variable setzen"**-Scriptschritt. Sie erzeugen die JSON-Objekte für eine **Rechnung**, eine **Position** und die **Einstellungen**, die an die Skripte von FX Invoice übergeben werden.
+Die Templates sind Vorlagen für den **„Variable setzen"**-Scriptschritt. Sie erzeugen die JSON-Objekte für eine **Rechnung**, eine **Position** und die **Einstellungen**, die an die Scripte von FX Invoices übergeben werden.
 
 Es gibt zwei **Basis-Templates** mit den Grunddaten und mehrere optionale **Gruppen-Templates**, die das Rechnungs- bzw. Positions-JSON um einzelne Themenbereiche erweitern.
 
@@ -37,7 +37,7 @@ Bei Implementierung bitte immer die aktuelle Fassung aus diesem Repo verwenden!
 - **Format-abhängige Felder** sind im Template kommentiert (z. B. „nur in XRechnung", „in UBL").
 - Wenn Sie nicht benötigte **optionale Felder** entfernen, dann bitte **konsistent**, d. h. an allen zugehörigen Stellen (Wert *und* zugehöriger Eintrag im `JSONSetElement`-Block).
 
-Die Templates bilden ab, was FX Invoice aktuell verarbeiten kann.
+Die Templates bilden ab, was FX Invoices aktuell verarbeiten kann.
 
 ## Verwendung
 

@@ -1,4 +1,4 @@
-# fx-invoice – Lizenzhinweis
+# FX Invoices – Lizenzhinweis
 
 Copyright (c) 2026 FMGarage e.K., Berlin. Alle Rechte vorbehalten.
 
@@ -17,10 +17,6 @@ Ohne schriftliche Zustimmung von FMGarage e.K. ist insbesondere nicht gestattet:
 - die Vervielfältigung, Verbreitung oder öffentliche Zugänglichmachung,
 - die Einbindung in eigene Produkte oder Dienstleistungen,
 - die Erstellung abgeleiteter Werke.
-
-## Drittkomponenten
-
-Diese Software nutzt Open-Source-Bibliotheken, die eigenen Lizenzbedingungen unterliegen. Siehe THIRD-PARTY-NOTICES.md für Details.
 
 ## Kontakt
 

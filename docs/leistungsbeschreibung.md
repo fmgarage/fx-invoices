@@ -89,7 +89,7 @@ Der Lizenznehmer ist dafür verantwortlich, dass die mit der Software erstellten
 Der Lizenznehmer ist ferner verantwortlich für:
 
 - die Richtigkeit und Vollständigkeit der eingegebenen Rechnungsdaten,
-- die Bereitstellung einer geeigneten Laufzeitumgebung (FileMaker Pro, Internetzugang),
+- die Bereitstellung einer geeigneten Laufzeitumgebung (FileMaker Pro, ggf. FileMaker Server, Internetzugang),
 - die Validierung der erzeugten Dokumente vor deren Versand, soweit er dies für erforderlich hält,
 - die Einhaltung seiner Aufbewahrungspflichten.
 

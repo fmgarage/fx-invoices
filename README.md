@@ -2,7 +2,7 @@
 
 **EU-konforme E-Rechnungen direkt in FileMaker – ohne Plugins, ohne externe Server.**
 
-FX Invoice erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII, Factur-X/ZUGFeRD) nach EN 16931 unmittelbar aus FileMaker. Die Verarbeitung erfolgt vollständig lokal auf dem Client – die Rechnungsdaten verlassen das Gerät nicht.
+FX Invoices erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII, Factur-X/ZUGFeRD) nach EN 16931 unmittelbar aus FileMaker. Die Verarbeitung erfolgt vollständig lokal auf dem Client – die Rechnungsdaten verlassen das Gerät nicht.
 
 ## Eigenschaften
 
@@ -24,14 +24,14 @@ Umfang der aktuellen Version: ausgehende Rechnungen (Typ 380).
 
 ## Voraussetzungen
 
-- FileMaker Pro 21 (2024)
-- Internetzugang (die Transformationsbibliothek wird bei über ein CDN geladen: )
+- FileMaker Pro ab Version 21 (2024)
+- Internetzugang (die Transformationsbibliothek wird über ein CDN geladen: cdn.jsdelivr.net)
 
 ## Quickstart
 
 1. `fx-invoices.zip` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und entpacken.
-2. Die Beispieldatei **Billo** öffnen.
-3. Die Dateien (`FX_Invoices.fmp12` und `Billo.fmp12`) müssen sich im selben Verzeichnis befinden.
+2. Die Dateien (`FX_Invoices.fmp12` und `Billo.fmp12`) müssen sich im selben Verzeichnis befinden.
+3. Die Beispieldatei **Billo** öffnen und die E-Rechnung erstellen.
 
 ## Dateiverschlüsselung (Encryption at Rest)
 
@@ -56,7 +56,7 @@ Der Entwickler der verwendeten Bibliothek berichtet von sporadischen Problemen b
 
 ## Verwendete Open-Source-Bibliothek
 
-FX Invoice nutzt für die Transformation in die Zielformate das Projekt **e-invoice-eu** von Guido Flohr. Vielen Dank an den Autor.
+FX Invoices nutzt für die Transformation in die Zielformate das Projekt **e-invoice-eu** von Guido Flohr. Vielen Dank an den Autor.
 
 - Homepage: <https://www.guido-flohr.net/creating-electronic-invoices-with-free-and-open-source-software/>
 - GitHub: <https://github.com/gflohr/e-invoice-eu>
@@ -64,7 +64,7 @@ FX Invoice nutzt für die Transformation in die Zielformate das Projekt **e-invo
 
 ## Updates
 
-FX Invoice verfügt über eine integrierte Update-Funktion. Aktualisierungen von Funktionen und Vorlagen werden direkt in der Anwendung eingespielt; größere Versionssprünge werden als neue Datei über die Releases bereitgestellt.
+FX Invoices verfügt über eine integrierte Update-Funktion. Aktualisierungen von Funktionen und Vorlagen werden direkt in der Anwendung eingespielt; größere Versionssprünge werden als neue Datei über die Releases bereitgestellt.
 
 ## Lizenz
 
