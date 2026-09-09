@@ -6,6 +6,8 @@ Copyright (c) 2026 FMGarage e.K., Berlin. Alle Rechte vorbehalten.
 
 Die Nutzung dieser Software setzt den Erwerb einer gültigen Lizenz von FMGarage e.K. voraus. Ohne gültige Lizenz ist die Nutzung nur im Rahmen eines von FMGarage bereitgestellten Free Tier gestattet.
 
+Umfang und Bedingungen der Lizenz ergeben sich aus der [Leistungsbeschreibung](docs/leistungsbeschreibung.md).
+
 ## Nicht gestattet
 
 Ohne schriftliche Zustimmung von FMGarage e.K. ist insbesondere nicht gestattet:

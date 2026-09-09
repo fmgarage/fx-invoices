@@ -29,9 +29,9 @@ Umfang der aktuellen Version: ausgehende Rechnungen (Typ 380).
 
 ## Quickstart
 
-1. `FX_Invoices.fmp12` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und öffnen.
-2. Die Beispieldatei **Billo** herunterladen und öffnen.
-3. Beide Dateien (`FX_Invoices.fmp12` und `Billo.fmp12`) müssen sich im selben Verzeichnis befinden.
+1. `fx-invoices.zip` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und entpacken.
+2. Die Beispieldatei **Billo** öffnen.
+3. Die Dateien (`FX_Invoices.fmp12` und `Billo.fmp12`) müssen sich im selben Verzeichnis befinden.
 
 ## Dateiverschlüsselung (Encryption at Rest)
 
@@ -68,7 +68,7 @@ FX Invoice verfügt über eine integrierte Update-Funktion. Aktualisierungen von
 
 ## Lizenz
 
-FX Invoice ist ein kommerzielles Produkt. Siehe [LICENSE.md](LICENSE.md). 
+FX Invoices ist ein kommerzielles Produkt. Siehe [LICENSE.md](LICENSE.md) und die [Leistungsbeschreibung](docs/leistungsbeschreibung.md).
 
 ---
 
