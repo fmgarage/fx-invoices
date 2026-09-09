@@ -43,16 +43,25 @@ Es dient dem Schutz der Datei auf Dateisystemebene; die eigentliche Zugangskontr
 
 ## Ergebnisse überprüfen
 
-Die erzeugten Rechnungen lassen sich unabhängig prüfen, z. B. mit:
+Die erzeugten Rechnungen lassen sich unabhängig prüfen:
 
-- **Quba-Viewer** – Anzeige und Validierung: https://quba-viewer.org
-- **E-Rechnungs-Validator**: <https://erechnungsvalidator.service-bw.de/>
+- **Quba-Viewer** – Anzeige der Rechnung und übersichtliche Darstellung des XML-Inhalts (keine Format-Validierung): https://quba-viewer.org
+- **Online-Validatoren** – mehrere Anbieter prüfen XML und ZUGFeRD-PDF kostenlos gegen die KoSIT-Regeln, teils inklusive PDF/A-Check. Beim Hochladen echter Rechnungen die Datenschutzhinweise des jeweiligen Anbieters beachten.
 
 > **Wichtig:** Maßgeblich für das Rechtsgeschäft ist immer die XML-Datei, nicht das PDF. PDF und XML müssen inhaltlich übereinstimmen – prüfen Sie die erzeugten Ergebnisse daher sorgfältig.
 
 ## Hinweis zur PDF-Erstellung
 
-Der Entwickler der verwendeten Bibliothek berichtet von sporadischen Problemen bei der Verarbeitung von PDFs. In unseren Tests mit aus FileMaker erstellten PDF-Dateien traten keinerlei Probleme auf.
+Für Factur-X/ZUGFeRD wird das übergebene PDF in ein PDF/A-3 umgewandelt. Diese Konvertierung ist die empfindlichste Stelle im Prozess – die Ursache für Probleme liegt dabei fast immer im Ausgangs-PDF, nicht in FX Invoices.
+
+In den allermeisten Fällen sind es die **Schriften**: Einige Systemschriften (unter macOS z.B. Helvetica oder Lucida Grande) werden von FileMaker beim PDF-Export so eingebettet, dass das Ergebnis die PDF/A-Prüfung nicht besteht. Nach Wechsel auf eine andere Schrift (z.B. Helvetica Neue) waren die PDFs in unseren Tests fehlerfrei.
+
+Die meisten Probleme lassen sich damit in wenigen Minuten selbst lösen:
+
+1. Das PDF z.B. mit [veraPDF](https://verapdf.org) (Open Source, Desktop und Kommandozeile) oder einem Online-Tool gegen PDF/A-3B prüfen. Meldungen zu Fonts, CIDSet oder Glyphen deuten auf das Schriftproblem hin.
+2. Im Rechnungslayout auf eine andere Schrift wechseln – auch in Kopf- und Fußzeilen und in Layoutobjekten – und erneut erzeugen.
+
+Bleibt das Problem bestehen, helfen wir gern weiter. 
 
 ## Verwendete Open-Source-Bibliothek
 
