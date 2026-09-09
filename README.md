@@ -25,7 +25,7 @@ Umfang der aktuellen Version: ausgehende Rechnungen (Typ 380).
 ## Voraussetzungen
 
 - FileMaker Pro 21 (2024)
-- Internetzugang (die Transformationsbibliothek wird beim Start über ein CDN geladen)
+- Internetzugang (die Transformationsbibliothek wird bei über ein CDN geladen: )
 
 ## Quickstart
 
