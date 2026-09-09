@@ -1,8 +1,12 @@
 FX Invoices Demo-Lizenz
 
 Ablaufdatum: 2027-01-10
+
 Email: info@fmgarage.com
+
 Lizenzierte Mandanten: unlimitiert
+
+
 
 Zur Installation der Lizenz den Text mit dem "Text einfügen" Scriptschritt angeben.
 
