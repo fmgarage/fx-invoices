@@ -12,7 +12,7 @@
 Let(
 	[
 		// BT-59*: Name des abweichenden Zahlungsempfängers
-		payeeName = "Inkasso Service GmbH";
+		payeeName = "(payeeName)";
 		
 		// BT-60: Eindeutige Kennung für den Zahlungsempfänger
 		payeeId = "";
@@ -40,7 +40,7 @@ Let(
 		// sellerIban = "DE89370400440532013000";
 
 		// BT-85: Inhaber des Kontos, auf das die Zahlung erfolgen soll
-		accountHolderName = "Musterhandel GmbH";
+		accountHolderName = "";
 
 		// BT-86 (derzeit im Base): Kennung des kontoführenden Instituts (BIC)
 		// sellerBic = "COBADEFFXXX";
