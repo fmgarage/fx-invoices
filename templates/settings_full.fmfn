@@ -22,8 +22,6 @@ Let(
 
 		/*	method for calling the e-invoice-eu library	
 			empbedded (default): call the javascript library directly using a web viewer, only works on client
-			cli: call the command line interface, needs a plugin like MBS or BaseElements
-			http: call the local webserver, musst be installed and running
 		*/
 		api_method = "embedded";
 
