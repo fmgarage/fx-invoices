@@ -2,7 +2,7 @@
 
 **EU-konforme E-Rechnungen direkt in FileMaker – ohne Plugins, ohne externe Server.**
 
-FX Invoice erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII, Factur-X/ZUGFeRD) nach EN 16931 unmittelbar aus FileMaker. Die Verarbeitung erfolgt vollständig lokal auf dem Client – die Rechnungsdaten verlassen das Gerät nicht.
+FX Invoices erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII, Factur-X/ZUGFeRD) nach EN 16931 unmittelbar aus FileMaker. Die Verarbeitung erfolgt vollständig lokal auf dem Client – die Rechnungsdaten verlassen das Gerät nicht.
 
 ## Eigenschaften
 
@@ -24,14 +24,14 @@ Umfang der aktuellen Version: ausgehende Rechnungen (Typ 380).
 
 ## Voraussetzungen
 
-- FileMaker Pro 21 (2024)
-- Internetzugang (die Transformationsbibliothek wird beim Start über ein CDN geladen)
+- FileMaker Pro ab Version 21 (2024)
+- Internetzugang (die Transformationsbibliothek wird über ein CDN geladen: cdn.jsdelivr.net)
 
 ## Quickstart
 
-1. `FX_Invoices.fmp12` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und öffnen.
-2. Die Beispieldatei **Billo** herunterladen und öffnen.
-3. Beide Dateien (`FX_Invoices.fmp12` und `Billo.fmp12`) müssen sich im selben Verzeichnis befinden.
+1. `fx-invoices.zip` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und entpacken.
+2. Die Dateien (`FX_Invoices.fmp12` und `Billo.fmp12`) müssen sich im selben Verzeichnis befinden.
+3. Die Beispieldatei **Billo** öffnen und die E-Rechnung erstellen.
 
 ## Dateiverschlüsselung (Encryption at Rest)
 
@@ -43,20 +43,29 @@ Es dient dem Schutz der Datei auf Dateisystemebene; die eigentliche Zugangskontr
 
 ## Ergebnisse überprüfen
 
-Die erzeugten Rechnungen lassen sich unabhängig prüfen, z. B. mit:
+Die erzeugten Rechnungen lassen sich unabhängig prüfen:
 
-- **Quba-Viewer** – Anzeige und Validierung: https://quba-viewer.org
-- **E-Rechnungs-Validator**: <https://erechnungsvalidator.service-bw.de/>
+- **Quba-Viewer** – Anzeige der Rechnung und übersichtliche Darstellung des XML-Inhalts (keine Format-Validierung): https://quba-viewer.org
+- **Online-Validatoren** – mehrere Anbieter prüfen XML und ZUGFeRD-PDF kostenlos gegen die KoSIT-Regeln, teils inklusive PDF/A-Check. Beim Hochladen echter Rechnungen die Datenschutzhinweise des jeweiligen Anbieters beachten.
 
 > **Wichtig:** Maßgeblich für das Rechtsgeschäft ist immer die XML-Datei, nicht das PDF. PDF und XML müssen inhaltlich übereinstimmen – prüfen Sie die erzeugten Ergebnisse daher sorgfältig.
 
 ## Hinweis zur PDF-Erstellung
 
-Der Entwickler der verwendeten Bibliothek berichtet von sporadischen Problemen bei der Verarbeitung von PDFs. In unseren Tests mit aus FileMaker erstellten PDF-Dateien traten keinerlei Probleme auf.
+Für Factur-X/ZUGFeRD wird das übergebene PDF in ein PDF/A-3 umgewandelt. Diese Konvertierung ist die empfindlichste Stelle im Prozess – die Ursache für Probleme liegt dabei fast immer im Ausgangs-PDF, nicht in FX Invoices.
+
+In den allermeisten Fällen sind es die **Schriften**: Einige Systemschriften (unter macOS z.B. Helvetica oder Lucida Grande) werden von FileMaker beim PDF-Export so eingebettet, dass das Ergebnis die PDF/A-Prüfung nicht besteht. Nach Wechsel auf eine andere Schrift (z.B. Helvetica Neue) waren die PDFs in unseren Tests fehlerfrei.
+
+Die meisten Probleme lassen sich damit in wenigen Minuten selbst lösen:
+
+1. Das PDF z.B. mit [veraPDF](https://verapdf.org) (Open Source, Desktop und Kommandozeile) oder einem Online-Tool gegen PDF/A-3B prüfen. Meldungen zu Fonts, CIDSet oder Glyphen deuten auf das Schriftproblem hin.
+2. Im Rechnungslayout auf eine andere Schrift wechseln – auch in Kopf- und Fußzeilen und in Layoutobjekten – und erneut erzeugen.
+
+Bleibt das Problem bestehen, helfen wir gern weiter. 
 
 ## Verwendete Open-Source-Bibliothek
 
-FX Invoice nutzt für die Transformation in die Zielformate das Projekt **e-invoice-eu** von Guido Flohr. Vielen Dank an den Autor.
+FX Invoices nutzt für die Transformation in die Zielformate das Projekt **e-invoice-eu** von Guido Flohr. Vielen Dank an den Autor.
 
 - Homepage: <https://www.guido-flohr.net/creating-electronic-invoices-with-free-and-open-source-software/>
 - GitHub: <https://github.com/gflohr/e-invoice-eu>
@@ -64,11 +73,11 @@ FX Invoice nutzt für die Transformation in die Zielformate das Projekt **e-invo
 
 ## Updates
 
-FX Invoice verfügt über eine integrierte Update-Funktion. Aktualisierungen von Funktionen und Vorlagen werden direkt in der Anwendung eingespielt; größere Versionssprünge werden als neue Datei über die Releases bereitgestellt.
+FX Invoices verfügt über eine integrierte Update-Funktion. Aktualisierungen von Funktionen und Vorlagen werden direkt in der Anwendung eingespielt; größere Versionssprünge werden als neue Datei über die Releases bereitgestellt.
 
 ## Lizenz
 
-FX Invoice ist ein kommerzielles Produkt. Siehe [LICENSE.md](LICENSE.md). 
+FX Invoices ist ein kommerzielles Produkt. Siehe [LICENSE.md](LICENSE.md) und die [Leistungsbeschreibung](docs/leistungsbeschreibung.md).
 
 ---
 

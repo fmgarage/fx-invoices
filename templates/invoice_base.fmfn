@@ -1,16 +1,15 @@
-/*	Variable setzen [ $invoice_json ; Wert: inhalt dieser Datei ]
+/*	Allgemeine Angaben zur Rechnung
+	Angaben zur Identität des Verkäufers
+	Angaben zur Identität des Käufers
 
-	Erzeugt den Parameter für das Script FXInvoices.generate( $invoice_json )
-	
 	Version 1.1, Stand 10.06.2026
-
 	Bitte immer das aktuelle Template verwenden:
-	https://github.com/fmgarage/fx-invoices/blob/main/templates/invoice.fmfn
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/invoice_base.fmfn
 
+	Implementierung:
+	Variable setzen [ $FXInvoice.json ; Wert: (dieses Template) ]
 
-	@info https://e-rechnung-bund.de/app/uploads/2025/09/Uebersichtsliste-Eingabefelder-OZG-RE_092025.pdf
-	@info https://www.eu-rechnung.de/bt-rechnungsfelder
-
+	Die Werte entweder hier direkt statisch setzen, $$ bzw. $variablen oder Felder einsetzen
 */
 
 Let(
@@ -44,7 +43,7 @@ Let(
 		invoiceTypeCode = 380;
 
 		// BT-1*: Eindeutige Kennung der Rechnung, z.B. "INV-2026-0001". Muss einmalig sein und darf nicht erneut verwendet werden.
-		code = "INV-2026-0001";
+		code = "(code)";
 
 		// BT-2*: Datum der Rechnung (z.B. 1.2.2026). Hier einfach das Datumsfeld der Rechnung einsetzen.
 		issueDate = "";
@@ -62,9 +61,15 @@ Let(
 		paymentTerms = "";
 
 		// BT-20: Payment terms Skonto fields, BaseValue is optional
-		paymentTermsSkontoDays = null;
-		paymentTermsSkontoPercent = null;
-		paymentTermsSkontoBaseValue = null;
+		paymentTermsSkontoDays = "";
+		paymentTermsSkontoPercent = "";
+		paymentTermsSkontoBaseValue = "";
+
+		// BT-120: Grund für die Ausnahme von der Umsatzsteuer (Text)
+		taxExemptionReason = "";
+
+		// BT-121: Grund für die Ausnahme von der Umsatzsteuer (Code) - z.B. AE, K, G, S
+		taxExemptionReasonCode = "";
 
 
 		/*	BG-4, BG-5, BG-7: Verkäufer
@@ -74,40 +79,43 @@ Let(
 		*/
 
 		// BT-27*: Name, z.B. "Musterhandel GmbH". Sollte den offiziellen Firmennamen enthalten und kann auch den Handelsnamen beinhalten.
-		sellerName = "Musterhandel GmbH";
+		sellerName = "(sellerName)";
+
+		// BT-28: Seller Trading Name. 
+		sellerTradingName = "";
 
 		// BT-31*: Umsatzsteuer-Identifikationsnummer, z.B. "DE123456789"
-		sellerVatId = "DE123456789";
+		sellerVatId = "(sellerVatId)";
 
 		// BT-33: Weitere rechtliche Informationen (z.B. "Amtsgericht Hamburg, HRB 12345")
 		sellerLegalForm = "";
 		
 		// BT-35*: Straße und Hausnummer, z.B. "Chausseestraße 42"
-		sellerStreet = "Chausseestraße 42";
-
-		// BT-38*: Postleitzahl, z.B. "10115"
-		sellerPostCode = "10115";
+		sellerStreet = "(sellerStreet)";
 
 		// BT-37*: Ort, z.B. "Berlin"
-		sellerCity = "Berlin";
+		sellerCity = "(sellerCity)";
 
-		// BT-39*: Land, z.B. "DE"
-		sellerCountryCode = "DE";
+		// BT-38*: Postleitzahl, z.B. "10115"
+		sellerPostCode = "(sellerPostCode)";
+
+		// BT-39*: Land, z.B. "DE" (Codeliste ISO 3166-1 alpha-2)
+		sellerCountryCode = "(sellerCountryCode)";
 
 		// BT-41*: Ansprechpartner, z.B. "Max Mustermann"
-		sellerContact = "Max Mustermann";
+		sellerContact = "(sellerContact)";
 
 		// BT-42*: Telefonnummer, z.B. "+49 30 12345678"
-		sellerPhone = "+49 30 12345678";
+		sellerPhone = "(sellerPhone)";
 
 		// BT-43*: E-Mail-Adresse, z.B. "info@fmgarage.com"
-		sellerEmail = "info@mail.com";
+		sellerEmail = "(sellerEmail)";
 
 		// BT-84*: IBAN des Zahlungskontos, z.B. "DE89370400440532013000"
-		sellerIban = "DE89370400440532013000";
+		sellerIban = "(sellerIban)";
 
 		// BT-86: BIC des Zahlungsdienstleister, z.B. "COBADEFFXXX"
-		sellerBic = "COBADEFFXXX";
+		sellerBic = "";
 
 
 
@@ -119,32 +127,36 @@ Let(
 
 		// BT-10: Kundenreferenz, z.B. Leitweg-ID für öffentliche Auftraggeber
 		// * nur in XRechnung. Optional in Factur-X/ZUGFeRD.
-		buyerReference = "(Leitweg-ID)";
+		buyerReference = "(buyerReference)";
 
 		// BT-44*: Name, z.B. "Beispiel AG"
-		buyerName = "Beispiel AG";
+		buyerName = "(buyerName)";
 
-		// BT-41*: Ansprechpartner, z.B. "Erika Mustermann"
-		buyerContact = "Erika Mustermann";
+		// BT-56: Ansprechpartner, z.B. "Erika Mustermann"
+		buyerContact = "";
 
 		// BT-48: Umsatzsteuer-Identifikationsnummer, z.B. "DE987654321"
 		// * nur in XRechnung. Optional in Factur-X/ZUGFeRD. 
-		buyerVatId = "DE1234567890";
+		buyerVatId = "";
 
 		// BT-49: Elektronische Peppol-Adresse des Erwerbers, z.B. 0204:991-12345-XX
 		// * in UBL, XRECHNUNG-UBL
 		buyerEndpointId = "";
 
 		// BT-50*: Straße und Hausnummer, z.B. "Musterstraße 1", alternativ Postfach (z.b. "Postfach 0123456")
-		buyerStreet = "Musterstraße 1";
-
-		// BT-53*: Postleitzahl, z.B. "80331"
-		buyerPostCode = "80331";
+		buyerStreet = "(buyerStreet)";
 
 		// BT-52*: Ort, z.B. "München"
-		buyerCity = "München";
+		buyerCity = "(buyerCity)";
 
+		// BT-53*: Postleitzahl, z.B. "80331"
+		buyerPostCode = "(buyerPostCode)";
 
+		// BT-54: Bundesland
+		buyerState = "";
+
+		// BT-55*: Land, z.B. "DE" (Codeliste ISO 3166-1 alpha-2)
+		buyerCountryCode = "(buyerCountryCode)";
 
 		// BT-13: Bestellnummer, Auftragsnummer
 		orderReference = "";
@@ -159,22 +171,34 @@ Let(
 		paymentMeansCode = "58"; 
 
 		// BT-83: Zahlungsreferenz, z.B. "Rechnung INV-2026-0001"
-		paymentReference = "Rechnung INV-2026-0001"
+		paymentReference = "(paymentReference)";
 
+
+
+		/*	interne Berechnung für mehrere Preisanpassungen pro Rechnung
+			————————————————————————————————————————————————————————————————————
+		*/
+		$FXInvoice.adjustment_index = 0
 	];
 
-	JSONSetElement ( $FXInvoice;
+	JSONSetElement ( "";
 		[ "format"; format; JSONString ];
 		[ "invoiceTypeCode"; invoiceTypeCode; JSONString ];
 		[ "code"; code; JSONString ];
 		[ "issueDate";issueDate; JSONNumber ];
 		[ "deliveryDate"; deliveryDate; JSONNumber ];
 		[ "currency"; currency; JSONString ];
-		[ "dueDate"; dueDate; Falls( nicht istleer( dueDate ); JSONNumber; JSONNull ) ];
+		[ "dueDate"; dueDate; Case( not IsEmpty( dueDate ); JSONNumber; JSONNull ) ];
 		[ "paymentMeansCode"; paymentMeansCode; JSONString ];
 		[ "paymentTerms"; paymentTerms; JSONString ];
+		[ "paymentTermsSkontoDays"; paymentTermsSkontoDays; JSONNumber ];
+		[ "paymentTermsSkontoPercent"; paymentTermsSkontoPercent; JSONNumber ];
+		[ "paymentTermsSkontoBaseValue"; paymentTermsSkontoBaseValue; Case( not IsEmpty( paymentTermsSkontoBaseValue ); JSONNumber; JSONNull ) ];
+		[ "taxExemptionReason"; taxExemptionReason; JSONString ];
+		[ "taxExemptionReasonCode"; taxExemptionReasonCode; JSONString ];
 		[ "paymentReference"; paymentReference; JSONString ];
 		[ "sellerName"; sellerName; JSONString ];
+		[ "sellerTradingName"; sellerTradingName; JSONString ];
 		[ "sellerVatId"; sellerVatId; JSONString ];
 		[ "sellerLegalForm"; sellerLegalForm; JSONString ];
 		[ "sellerStreet"; sellerStreet; JSONString ];
@@ -193,6 +217,8 @@ Let(
 		[ "buyerStreet"; buyerStreet; JSONString ];
 		[ "buyerPostCode"; buyerPostCode; JSONString ];
 		[ "buyerCity"; buyerCity; JSONString ];
+		[ "buyerState"; buyerState; JSONString ];
+		[ "buyerCountryCode"; buyerCountryCode; JSONString ];
 		[ "orderReference"; orderReference; JSONString ];
 		[ "settings"; $settings; JSONObject ];
 		[ "lines"; $lines; JSONArray ]

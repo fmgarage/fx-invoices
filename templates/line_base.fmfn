@@ -1,26 +1,33 @@
-/*	Variable setzen [ $line ; Wert: inhalt dieser Datei ]
-	
-	Erzeugt die JSON-Parameter für das Script FXInvoices.addLine()
-	Plichtfelder nach EN16931 sind mit * gekennzeichnet
+/*	Rechnungsposition
 	
 	Version 1.1, Stand 10.06.2026
-
 	Bitte immer das aktuelle Template verwenden:
-	https://github.com/fmgarage/fx-invoices/blob/main/templates/line.fmfn
-	
-	@info https://e-rechnung-bund.de/app/uploads/2025/09/Uebersichtsliste-Eingabefelder-OZG-RE_092025.pdf
-	@info https://www.eu-rechnung.de/bt-rechnungsfelder
+	https://github.com/fmgarage/fx-invoices/blob/main/templates/line_base.fmfn
+
+	Implementierung:
+	Variable setzen [ $FXInvoice.line.json ; Wert: (dieses Template) ]
+
+	Die Werte entweder hier 
+		- direkt statisch setzen, 
+		- über $$ bzw. $variablen oder 
+		- Felder einsetzen
+
  */
 Let(
 	[
+		// BT-126: wird automatisch geseztzt
+
 		// BT-153*: Artikelbezeichnung
-		name = "";
+		name = "(name)";
 
 		// BT-154: Artikelbeschreibung (optional)
 		description = "";
 
 		// BT-155: Artikelnummer (optional)
-		sku = "";
+		sellerItemId = "";
+
+		// BT-156: Artikelnummer beim Kunden
+		buyerItemId = "";
 
 		// BT-129: Menge, default 1
 		quantity = 1;
@@ -29,7 +36,7 @@ Let(
 		unitCode = ""; 
 
 		// BT-146*: Einzelpreis netto
-		unitPriceAmount = "";
+		unitPriceAmount = 0;
 
 		// BT-149: Artikel-Preiseinheit, z.B. 100 für Preise pro 100 Stück
 		baseQuantity = 1;
@@ -40,12 +47,20 @@ Let(
 		// BT-118: Steuerschlüssel, z.B. 'S' für Standardsteuersatz (default), 'S' für ermäßigter Steuersatz, 'O' für steuerfrei
 		// https://www.invoice-converter.com/en/resources/xrechnung/bt-118-vat-category-code
 		// S, O, Z, AE, K, G, L, M
-		taxCategory = ""
+		taxCategory = "";
+
+
+		/*	interne Berechnung für mehrere Preisanpassungen pro Position
+			————————————————————————————————————————————————————————————————————
+		*/
+		$FXInvoice.line.adjustment_index = 0
 
 	];
 	JSONSetElement ( "{}" ;
 		[ "name" ; name ; JSONString ];
 		[ "description" ; description ; JSONString ];
+		[ "sellerItemId" ; sellerItemId ; JSONString ];
+		[ "buyerItemId" ; buyerItemId ; JSONString ];
 		[ "quantity" ; quantity ; JSONNumber ];
 		[ "unitCode" ; unitCode ; JSONString ];
 		[ "unitPriceAmount" ; unitPriceAmount ; JSONNumber ];
