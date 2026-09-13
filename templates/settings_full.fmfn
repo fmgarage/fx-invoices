@@ -1,5 +1,5 @@
-/*	settings_v1.fmfn
-	Erzeugt das Settings-Object
+/*	settings_full.fmfn
+	Configuration of the settings object. 
 
 	@todo logging
 	@todo debug, display errors
@@ -7,23 +7,51 @@
 Let(
 	[
 		/*	License
-			set $license using an 'Insert Text' script step beforehand
+			set $license using an 'Insert Text' script step 
 		*/
 		email = "";
 
 
-		/*	Updates
-			Field definitions and mappings will be constantly updated, so it's important to check for updates regularly.
-			0 = no update check, 
-			1 = check for updates on startup (default)
-			2 = install updates automatically
+		/*	debug_mode (default: false)
+			When true, every call writes a debug folder to the desktop
+			(fx-invoices-debug) containing the raw input (invoice JSON,
+			settings, PDF if any), the generated output and the error log
+			of the library. Use it during integration or to report a problem.
+			When false, the folder is only written if an error occurs.
+			Note: the folder contains invoice data — delete it after use.
 		*/
-		check_for_updates = 1;
+		debug_mode = false;
 
-		/*	method for calling the e-invoice-eu library	
-			empbedded (default): call the javascript library directly using a web viewer, only works on client
+		/*	Updates
+			Field definitions and mappings are updated regularly. FX Invoices
+			checks the update feed once per day (required for licensing,
+			see docs/leistungsbeschreibung.md).
+			false = notify only (default)
+			true = install updates automatically
 		*/
-		api_method = "embedded";
+		auto_update = false;
+
+		/*	force_webservice (default: false)
+			false: automatic — web viewer on client, local webservice on server
+			true: always use the webservice, also on client.
+			      Note: the client does NOT talk to the service on your
+			      FileMaker Server automatically. It uses server_host; if
+			      empty, it expects a service on the client's own localhost.
+			      Set server_host (https mandatory) to reach a shared instance,
+			      see docs/server.md
+		*/
+		force_webservice = false;
+
+		/*	when you run the webservice for invoice generation on the different host than your FileMaker Server,
+			you can specify the hostname here. In this case, https is mandatory!
+		*/
+		server_host = ""; 
+
+
+		/*	the server_port defaults to 3010. 
+			If you use a different port in your docker run command you can set it here.
+		*/
+		server_port = "";
 
 		/*	Plugin for calling the CLI, only needed if api_method is "cli"
 			options are "MBS" or "BaseElements"
@@ -31,12 +59,12 @@ Let(
 		plugin = "";
 
 		/*	Error Reporting
-			if something goes wron in FMInvoice, the script will return an error message beginning with "ERROR: ...".
+			if something goes wrong in FX_Invoice, the script will return an error message beginning with "ERROR: ...".
 			If you want more insight into the error, you can activate exceptions by setting this to true.
 
 			You can catch the exception manually or you can use our SError custom functions
 		*/
-		return_error_as_json = true;
+		return_error_as_json = false;
 
 		/*	Use local library
 			when using the embedded method, by default the javascript library is loaded from a CDN. 
@@ -48,9 +76,12 @@ Let(
 	];
 	JSONSetElement ( "" ;
 		[ "email"; email; JSONString ];
+		[ "debug_mode"; debug_mode; JSONBoolean ];
 		[ "_license"; $license; JSONString ];
-		[ "check_for_updates"; check_for_updates; JSONNumber ];
-		[ "api_method"; api_method; JSONString ];
+		[ "auto_update"; auto_update; JSONNumber ];
+		[ "force_webservice"; force_webservice; JSONBoolean ];
+		[ "server_host"; server_host; JSONString ];
+		[ "server_port"; server_port; JSONNumber ];
 		[ "use_local_library"; use_local_library; JSONBoolean ];
 		[ "plugin"; plugin; JSONString ];
 		[ "return_error_as_json"; return_error_as_json; JSONBoolean ]
