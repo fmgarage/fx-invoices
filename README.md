@@ -1,4 +1,4 @@
-<span style="background-color:#ffffff;"><img src="docs/assets/fx-reports.png" style="height:80px;magin-bottom: 20px;"></span>
+<span style="background-color:#ffffff;"><img src="docs/assets/fx-invoices.png" style="height:80px;magin-bottom: 20px;"></span>
 
 # FX Invoices
 
