@@ -1,3 +1,5 @@
+<span style="background-color:#ffffff;"><img src="docs/assets/fx-reports.png" style="height:80px;magin-bottom: 20px;"></span>
+
 # FX Invoices
 
 **EU-konforme E-Rechnungen direkt in FileMaker – ohne Plugins, ohne externe Server.**
@@ -9,6 +11,7 @@ FX Invoices erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII,
 - **Keine Plugins** – arbeitet ausschließlich mit FileMaker-Bordmitteln.
 - **Keine Installation** von Tools und Bibliotheken auf Clients oder Server nötig.
 - **Lokale Verarbeitung** – auch bei Hosting auf einem FileMaker Server werden die Rechnungsdaten ausschließlich auf dem Client verarbeitet und verlassen diesen nicht.
+- **Optional serverseitig** – für Server-Scripts (PSoS, Zeitpläne) kann die Erzeugung auf dem FileMaker Server laufen, siehe [Serverseitige Erzeugung](docs/server.md).
 - **EN-16931-konform** in allen gängigen Formaten.
 - **Einfache In-App-Updates** – Aktualisierungen werden direkt in der Anwendung eingespielt.
 - **Einfache Integration** in bestehende FileMaker-Lösungen.
@@ -26,10 +29,11 @@ Umfang der aktuellen Version: ausgehende Rechnungen (Typ 380).
 
 - FileMaker Pro ab Version 21 (2024)
 - Internetzugang (die Transformationsbibliothek wird über ein CDN geladen: cdn.jsdelivr.net)
+- Nur für serverseitige Erzeugung: Docker auf dem FileMaker Server (Linux), siehe [docs/server.md](docs/server.md)
 
 ## Quickstart
 
-1. `fx-invoices.zip` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und entpacken.
+1. `fx-invoices-starter.zip` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und entpacken.
 2. Die Dateien (`FX_Invoices.fmp12` und `Billo.fmp12`) müssen sich im selben Verzeichnis befinden.
 3. Die Beispieldatei **Billo** öffnen und die E-Rechnung erstellen.
 
