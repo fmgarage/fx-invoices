@@ -53,10 +53,17 @@ Let(
 		*/
 		server_port = "";
 
-		/*	Plugin for calling the CLI, only needed if api_method is "cli"
-			options are "MBS" or "BaseElements"
+		/*	server_debug_folder (default: "tmp") — server-side only
+			Where debug folders are written when a script runs on FileMaker Server.
+			"tmp":       Get(TemporaryPath), exists only for the current server
+			             session — read the output within the same call.
+			"documents": Get(DocumentsPath) on the server. Persistent, so invoice
+			             data stays on the server and folders accumulate (up to
+			             86400). Use only for troubleshooting, set back to
+			             "tmp" afterwards and delete the folders.
+			A full path is also accepted (same caveats).
 		*/
-		plugin = "";
+		server_debug_folder = "tmp";
 
 		/*	Error Reporting
 			if something goes wrong in FX_Invoice, the script will return an error message beginning with "ERROR: ...".
@@ -77,13 +84,13 @@ Let(
 	JSONSetElement ( "" ;
 		[ "email"; email; JSONString ];
 		[ "debug_mode"; debug_mode; JSONBoolean ];
-		[ "_license"; $license; JSONString ];
 		[ "auto_update"; auto_update; JSONNumber ];
 		[ "force_webservice"; force_webservice; JSONBoolean ];
 		[ "server_host"; server_host; JSONString ];
 		[ "server_port"; server_port; JSONNumber ];
+		[ "server_debug_folder"; server_debug_folder; JSONString ];
 		[ "use_local_library"; use_local_library; JSONBoolean ];
-		[ "plugin"; plugin; JSONString ];
-		[ "return_error_as_json"; return_error_as_json; JSONBoolean ]
+		[ "return_error_as_json"; return_error_as_json; JSONBoolean ];
+		[ "_license"; $license; JSONString ]
 	)
 )
