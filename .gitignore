@@ -1,4 +1,7 @@
-.DS_Store
-.favorites.json
+.*
+!.gitignore
+!.github/
 *.fmp12
 bundle.json
+node_modules/
+Wiederherst.log

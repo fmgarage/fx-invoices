@@ -1,0 +1,8 @@
+{
+  "name": "fx-invoices",
+  "private": true,
+  "description": "Dependency manifest only. FX Invoices loads @e-invoice-eu/core from a CDN at runtime; this file exists so Dependabot reports new releases. There is nothing to install or build.",
+  "dependencies": {
+    "@e-invoice-eu/core": "3.3.0"
+  }
+}

@@ -7,25 +7,36 @@
 */
 Let(
 	[
-		/*	License
-			set $license using an 'Insert Text' script step beforehand
+		/*	License email
+			the $license variable must alreandy be set ('Insert Text' script step) at this point.
 		*/
 		email = "info@fmgarage.com";
 
 
-		/*	Updates
-			Field definitions and mappings will be constantly updated, so it's important to check for updates regularly.
-			0 = no update check, 
-			1 = check for updates on startup (default)
-			2 = install updates automatically
+		/*	debug_mode (default: false)
+			When true, every call writes a debug folder to the desktop
+			(fx-invoices-debug) containing the raw input (invoice JSON,
+			settings, PDF/XML), the generated output and the error log
+			of the library. Use it during integration or to report a problem.
+			When false, the folder is only written if an error occurs.
+			Note: the folder contains invoice data — delete it after use.
 		*/
-		check_for_updates = 1
+		debug_mode = false;
+
+
+		/*	Field definitions and mappings are updated regularly. FX Invoices checks the update 
+			feed once per day (required for licensing, see docs/leistungsbeschreibung.md).
+			false = notify only (default)
+			true = install updates automatically
+		*/
+		auto_update = false
 
 
 	];
 	JSONSetElement ( "" ;
 		[ "email"; email; JSONString ];
-		[ "_license"; $license; JSONString ];
-		[ "check_for_updates"; check_for_updates; JSONNumber ]
+		[ "debug_mode"; debug_mode; JSONBoolean ];
+		[ "auto_update"; auto_update; JSONBoolean ];
+		[ "_license"; $license; JSONString ]
 	)
 )

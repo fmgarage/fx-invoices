@@ -1,35 +1,37 @@
-# FX Invoices
+<span style="background-color:#ffffff;"><img src="docs/assets/fx-invoices.png" style="height:80px;magin-bottom: 20px;"></span>
 
-**EU-konforme E-Rechnungen direkt in FileMaker – ohne Plugins, ohne externe Server.**
+
+**EU-konforme E-Rechnungen direkt in FileMaker – lokal, ohne Plugins, ohne weitere Installationen.**
 
 FX Invoices erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII, Factur-X/ZUGFeRD) nach EN 16931 unmittelbar aus FileMaker. Die Verarbeitung erfolgt vollständig lokal auf dem Client – die Rechnungsdaten verlassen das Gerät nicht.
 
 ## Eigenschaften
 
-- **Keine Plugins** – arbeitet ausschließlich mit FileMaker-Bordmitteln.
-- **Keine Installation** von Tools und Bibliotheken auf Clients oder Server nötig.
-- **Lokale Verarbeitung** – auch bei Hosting auf einem FileMaker Server werden die Rechnungsdaten ausschließlich auf dem Client verarbeitet und verlassen diesen nicht.
-- **EN-16931-konform** in allen gängigen Formaten.
-- **Einfache In-App-Updates** – Aktualisierungen werden direkt in der Anwendung eingespielt.
-- **Einfache Integration** in bestehende FileMaker-Lösungen.
+- ✅ **Keine Plugins** – arbeitet ausschließlich mit FileMaker-Bordmitteln.
+- ✅ **Keine Installation** von Tools und Bibliotheken auf Clients oder Server nötig.
+- ✅ **Lokale Verarbeitung** – Rechnungsdaten werden ausschließlich auf dem Client verarbeitet und verlassen diesen nicht.
+- ✅ **EN-16931-konform** in allen gängigen Formaten.
+- ✅ **Einfache In-App-Updates** – Aktualisierungen werden direkt in der Anwendung eingespielt.
+- ✅ **Einfache Integration** in bestehende FileMaker-Lösungen.
+- ✅ **Optional serverseitig** – Server-Scripts (PSoS, API, Zeitpläne) als einfache Erweiterung (siehe [docs/server.md](docs/server.md)).
+
 
 ## Unterstützte Formate
 
-- **XRechnung** (UBL und CII)
-- **UBL** (Peppol BIS Billing 3.0)
-- **CII**
-- **Factur-X / ZUGFeRD** (EN 16931, Basic, Extended)
-
-Umfang der aktuellen Version: ausgehende Rechnungen (Typ 380).
+- ✅ **XRechnung** (UBL und CII)
+- ✅ **UBL** (Peppol BIS Billing 3.0)
+- ✅ **CII**
+- ✅ **Factur-X / ZUGFeRD** (EN 16931, Basic, Extended)
 
 ## Voraussetzungen
 
 - FileMaker Pro ab Version 21 (2024)
 - Internetzugang (die Transformationsbibliothek wird über ein CDN geladen: cdn.jsdelivr.net)
+- Nur für serverseitige Erzeugung: Docker auf dem FileMaker Server (Linux), siehe [docs/server.md](docs/server.md)
 
 ## Quickstart
 
-1. `fx-invoices.zip` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und entpacken.
+1. `fx-invoices-starter.zip` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und entpacken.
 2. Die Dateien (`FX_Invoices.fmp12` und `Billo.fmp12`) müssen sich im selben Verzeichnis befinden.
 3. Die Beispieldatei **Billo** öffnen und die E-Rechnung erstellen.
 

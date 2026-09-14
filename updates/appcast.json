@@ -1,7 +1,7 @@
 {
 	"bundleEncID" : 1,
 	"bundleUrl" : "https://raw.githubusercontent.com/fmgarage/fx-invoices/refs/heads/main/updates/bundle.txt",
-	"latest" : 1000000,
+	"latest" : 1001000,
 	"product" : "fx-invoice",
 	"releases" : [],
 	"version" : 2
