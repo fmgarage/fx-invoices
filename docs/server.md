@@ -59,6 +59,8 @@ ERROR: E-invoice service not reachable on 127.0.0.1:3010 ...
 
 Alle weiteren Fehler (Schemaprüfung, PDF-Konvertierung) werden wie im Client behandelt, siehe Abschnitt „Debugging" im README: Rückgabe `ERROR: …` und ein Debug-Ordner mit Rohdaten und Fehlerprotokoll.
 
+Auf dem Server landet der Debug-Ordner standardmäßig im temporären Verzeichnis (`server_debug_folder = "tmp"`), das nur während der Server-Session existiert – die Ausgaben also direkt im aufrufenden Script weiterverarbeiten. Zum Testen kann `server_debug_folder` auf `"documents"` gesetzt werden; die Ordner bleiben dann dauerhaft im Dokumente-Verzeichnis des Servers. Achtung: Dort liegen Rechnungsdaten. Nach dem Test wieder auf `"tmp"` zurückstellen und die Ordner löschen.
+
 ## Aktualisierung
 
 ```bash
