@@ -1,7 +1,7 @@
 <span style="background-color:#ffffff;"><img src="docs/assets/fx-invoices.png" style="height:80px;magin-bottom: 20px;"></span>
 
 
-**EU-konforme E-Rechnungen direkt in FileMaker –lokal,  ohne Plugins, ohne weitere Installationen.**
+**EU-konforme E-Rechnungen direkt in FileMaker – lokal, ohne Plugins, ohne weitere Installationen.**
 
 FX Invoices erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII, Factur-X/ZUGFeRD) nach EN 16931 unmittelbar aus FileMaker. Die Verarbeitung erfolgt vollständig lokal auf dem Client – die Rechnungsdaten verlassen das Gerät nicht.
 
