@@ -26,4 +26,4 @@ Die Mindestanforderungen an zu übertragende Daten sind alle im Template `invoic
 Rabatte und Zuschläge – sowohl auf Rechnungs- als auf Positionsbasis – können mehrfach hinzugefügt werden, ein interner Zähler erstellt im JSON ein entsprechendes Array. 
 
 > [!TIP]
-> Die Endung `.fmfn` steht für *FileMaker Function*. Hierfür gibt es u.a. für VSCode eine Erweiterung, die den Code entsprechend einfärbt und beim Schreiben die Eingaben vervollständigt ()[Marketplace](https://marketplace.visualstudio.com/items?itemName=jwillinghalpern.filemaker-vscode), [GitHub](https://github.com/jwillinghalpern/filemaker-vscode-bundle)). 
+> Die Endung `.fmfn` steht für *FileMaker Function*. Hierfür gibt es u.a. für VSCode eine Erweiterung, die den Code entsprechend einfärbt und beim Schreiben die Eingaben vervollständigt ([Marketplace](https://marketplace.visualstudio.com/items?itemName=jwillinghalpern.filemaker-vscode), [GitHub](https://github.com/jwillinghalpern/filemaker-vscode-bundle)). 
