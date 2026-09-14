@@ -12,16 +12,16 @@ Zur Installation der Lizenz den Text mit dem "Text einfügen" Scriptschritt ange
 
 ```txt
 ---------------------- BEGIN LICENSE -----------------------
-FXINV$1:Iiiq/7zPKCtvoiFPTiyX3S85os5XUuUeuKnT7rjqiw25+0LVbwDZ
-CRJ18ui8StUT55fjyAxx0/jR9L3NQM4XYK+Z7mYtId3TxLUim85bFPVQ4Ptg
-RtZcflpduQ1gZr1FF7XxdNsHX1fJkdG06jo4ftt8wNVuMMNFrH8uyEdN/mO3
-NV2WFHGuLVYTNjVy8KjgyNDpzblI90aaHJwwGjrzWXd/1bXwc5YPRZK1B/Cr
-02Am1tEkG1u/MY3oabYe19UgrGkEIemAcuAP+zuusulO7D/mmw6EY8/l559Y
-uPjka8jjpiE5JQhU4PlWL3nz8MA8UZBtlpOzU6/h/qzmlOM5laZ60jEsmT0n
-APhHg0f1DeJP0/+mt46Vwp+aKb3GJBzUrTIlQH49oke/oI9jYJNJs31N8U63
-F5ANsfEmZQokFz2tm41+7v+/IojgTccCx0ZjCWX3wsMoolK1K5DPDiSat6nZ
-Lc2AW6SHFzlR3QqShJNuWJihpL6sYElJVn7hC9Ck5tc+f/pT+4njN3lxxMYi
-X3BBmctmnhdpl99pCQZlmKciXRfFja5H/vZB5DsboKurnwO67czsrQm7vxwZ
-YtwZQCfS/Tfv4LLAlWPBnkKULY8=sP+4NpfktDi5TZFc3An8mFNcyNqo0XSe
+FXINV$1:rSp31n+h3472bpMjMS9hW2BlJRx5OGoOj0Bu+DiLwwOq1YvoxuJP
+IORXVdX5+X1Cq8ieqI/vTbIuAUs8RrPo8G6m/xUOsTHtvkLrDsfzVATxGsh2
+KHZjAEQAKEu9NBPQGJMGeEi19aE8Bk5HRLMMG+FM6QKGRDJlE+oMTRaePdoX
+4HzLGcrlp2CXkaQTJ9h3SbTxQGvQ3Mp6JvykrK2yiukACeawRUK1MkjDAodc
+o6O5kluwtioyj1B3OHzzSTD+35M9nuFLHr+Iil85m8TohRhU5q9ZI3O3Vb2r
+v0eD06oO4sRDpC5rQbrgQSYx1QQ7npjfCGl1Bz/KLiBtbOoQqDDQ9qxd3u9X
+IcvfwNTaMC7MhwDKuZ8svM3C8byyHIVQf72dYKM6urjQv/J4JaQycl6e0+2v
+EVIw11upqiYNEH67lCupcQqqit2SK26+Gcq52+b/KHniKi/enbf4qnI3G3Tg
+4qsgkJfaZ6+L2J4G2i5cb7bwi8Ckijc+yQXd7bbeLLTwpDsEy+d+txJRG3Rs
+3fyotPtGngzH0Rxb5klF28lUrNaa0TbADMNZcCXi5SmAYQYKrw2wX0Kwv7sV
+mUwJIrcCBx0Ubo15wUaAjssmeASYw3kaMI4+uYsLeKtJ=sP+4NpfktDi5TZF
 ----------------------- END LICENSE ------------------------
 ```
