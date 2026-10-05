@@ -34,6 +34,7 @@ FX Invoices erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII,
 1. `fx-invoices-starter.zip` aus den [Releases](https://github.com/fmgarage/fx-invoices/releases) herunterladen und entpacken.
 2. Die Dateien (`FX_Invoices.fmp12` und `Billo.fmp12`) müssen sich im selben Verzeichnis befinden.
 3. Die Beispieldatei **Billo** öffnen und die E-Rechnung erstellen.
+4. Die Beispieldateien enthalten eine Testlizenz bis 10.01.2027, siehe [examples/demo_user_license.md](examples/demo_user_license.md). Bitte die voreingestellte E-Mail-Adresse verwenden.
 
 ## Dateiverschlüsselung (Encryption at Rest)
 
