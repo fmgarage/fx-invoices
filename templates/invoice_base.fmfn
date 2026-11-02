@@ -135,6 +135,12 @@ Let(
 		// BT-56: Ansprechpartner, z.B. "Erika Mustermann"
 		buyerContact = "";
 
+		// BT-57: Telefonnummer 
+		buyerPhone = "";
+
+		// BT-58: E-mail 
+		buyerEmail = "";
+
 		// BT-48: Umsatzsteuer-Identifikationsnummer, z.B. "DE987654321"
 		// * nur in XRechnung. Optional in Factur-X/ZUGFeRD. 
 		buyerVatId = "";
@@ -170,8 +176,8 @@ Let(
 		// BT-81*: Code für die Zahlungsweise, z.B. "58" für Überweisung
 		paymentMeansCode = "58"; 
 
-		// BT-83: Zahlungsreferenz, z.B. "Rechnung INV-2026-0001"
-		paymentReference = "(paymentReference)";
+		// BT-83: Zahlungsreferenz, z.B. "Rechnung INV-2026-0001", wenn leer wird intern BT-1 Rechnungsnr. verwendet
+		paymentReference = "";
 
 
 
@@ -213,6 +219,8 @@ Let(
 		[ "buyerReference"; buyerReference; JSONString ];
 		[ "buyerName"; buyerName; JSONString ];
 		[ "buyerContact"; buyerContact; JSONString ];
+		[ "buyerEmail"; buyerEmail; JSONString ];
+		[ "buyerPhone"; buyerPhone; JSONString ];
 		[ "buyerVatId"; buyerVatId; JSONString ];
 		[ "buyerStreet"; buyerStreet; JSONString ];
 		[ "buyerPostCode"; buyerPostCode; JSONString ];
