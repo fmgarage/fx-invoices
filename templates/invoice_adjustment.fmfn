@@ -90,8 +90,8 @@ Let(
 
 	JSONSetElement ( $FXInvoice.json;
 		[ path & "isCharge"; isCharge; JSONBoolean ];
-		[ path & "amount"; amount; JSONNumber ];
-		[ path & "baseAmount"; baseAmount; JSONNumber ];
+		[ path & "amount"; amount; Case( IsEmpty( amount ); JSONNull; JSONNumber ) ];
+		[ path & "baseAmount"; baseAmount; Case( IsEmpty( baseAmount ); JSONNull; JSONNumber ) ];
 		[ path & "percent"; percent; JSONNumber ];
 		[ path & "taxCategory"; taxCategory; JSONString ];
 		[ path & "taxRate"; taxRate; JSONNumber ];

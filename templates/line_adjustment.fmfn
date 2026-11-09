@@ -29,11 +29,11 @@ Let(
 		amount = 0;
 
 		// BT-137/BT-142: Grundbetrag zu Berechnung des Nachlasses/Zuschlags
-		baseAmount = null;
+		baseAmount = "";
 
 		// BT-138/BT-143: Prozentsatz zur Berechnung des Nachlasses/Zuschlags
 		// nur positive Werte, Abschläge über isCharge = 0
-		percent = null;
+		percent = "";
 
 		// BT-139/BT-144: Grund für den Nachlass/Zuschlag in Textform
 		reason = "";
@@ -52,8 +52,8 @@ Let(
 
 	JSONSetElement ( $FXInvoice.line.json ;
 		[ path & "isCharge"; isCharge; JSONBoolean ];
-		[ path & "amount"; amount; JSONNumber ];
-		[ path & "baseAmount"; baseAmount; JSONNumber ];
+		[ path & "amount"; amount; Case( IsEmpty( amount ); JSONNull; JSONNumber ) ];
+		[ path & "baseAmount"; baseAmount; Case( IsEmpty( baseAmount ); JSONNull; JSONNumber ) ];
 		[ path & "percent"; percent; JSONNumber ];
 		[ path & "reason"; reason; JSONString ];
 		[ path & "reasonCode"; reasonCode; JSONString ]
