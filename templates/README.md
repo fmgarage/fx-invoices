@@ -58,6 +58,6 @@ Eine passende Script-Vorlage finden Sie im Starter-Beispiel (`Rechnungen.fmp12`)
 Fehlt Ihnen ein Feld, freuen wir uns über eine kurze Rückmeldung:
 
 - **Ticket eröffnen:** <https://github.com/fmgarage/fx-invoices/issues> (bevorzugt)
-- **Support:**  support@fmgarage.com
+- **E-Mail:** info@fmgarage.com
 
 Neue Felder können kurzfristig per Online-Update bereitgestellt und beim nächsten Start der Anwendung automatisch hinzugefügt werden.

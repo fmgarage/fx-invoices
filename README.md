@@ -38,9 +38,9 @@ FX Invoices erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII,
 
 ## Integration in bestehende Lösungen
 
-FX Invoices erzeugt die E-Rechnung – die eigentliche Arbeit bei der Integration liegt in der Aufbereitung der Daten. Eine PDF-Rechnung wurde vom Empfänger gelesen und eingeordnet; eine E-Rechnung muss diese Informationen von Anfang an eindeutig enthalten: Steuerkategorie und -satz je Betrag, Rabatte und Zuschläge auf Positions- oder Rechnungsebene, Bezug auf frühere Rechnungen bei Gutschriften, Mengeneinheiten als Code. Zwischensummen, reine Textzeilen oder ein Rabatt als freie Zeile, wie sie auf PDF-Rechnungen üblich sind, gibt es im Format so nicht.
+FX Invoices erzeugt die E-Rechnung – die eigentliche Arbeit bei der Integration liegt in der Aufbereitung der Daten. Eine herkömmliche Rechnung wurde vom Empfänger gelesen und eingeordnet; eine E-Rechnung muss diese Informationen von Anfang an eindeutig enthalten: Steuerkategorie und -satz je Betrag, Rabatte und Zuschläge auf Positions- oder Rechnungsebene, Bezug auf frühere Rechnungen bei Gutschriften, Mengeneinheiten als Code. Zwischensummen, reine Textzeilen oder ein Rabatt als freie Zeile, wie sie auf PDF- oder gedruckten Rechnungen üblich sind, gibt es im Format so nicht.
 
-Der Aufwand hängt deshalb weniger von FX Invoices ab als vom Aufbau der bestehenden Lösung und den abgerechneten Geschäftsvorfällen (Gutschriften, Abschlags- und Schlussrechnungen, Rabatte, mehrere Steuersätze, steuerfreie Leistungen). Die Templates im Ordner [`templates/`](templates/) zeigen, welche Angaben benötigt werden. Wer die eigene Lösung kennt, kommt damit in der Regel schnell zum Ziel – auf Wunsch übernehmen wir die Integration.
+Der Aufwand hängt deshalb weniger von FX Invoices ab als vom Aufbau der bestehenden Lösung und den abgerechneten Geschäftsvorfällen (Gutschriften, Abschlags- und Schlussrechnungen, Rabatte, mehrere Steuersätze, steuerfreie Leistungen). Die Templates im Ordner [`templates/`](templates/) zeigen, welche Angaben benötigt werden. Die Integration erfolgt am besten durch den Entwickler, der die bestehende Lösung betreut – wer sie kennt, kommt damit am schnellsten zum Ziel. Ist das nicht möglich, übernehmen wir die Implementierung auf Anfrage auch selbst.
 
 ## Dateiverschlüsselung (Encryption at Rest)
 
@@ -61,16 +61,7 @@ Die erzeugten Rechnungen lassen sich unabhängig prüfen:
 
 ## Hinweis zur PDF-Erstellung
 
-Für Factur-X/ZUGFeRD wird das übergebene PDF in ein PDF/A-3 umgewandelt. Diese Konvertierung ist die empfindlichste Stelle im Prozess – die Ursache für Probleme liegt dabei fast immer im Ausgangs-PDF, nicht in FX Invoices.
-
-In den allermeisten Fällen sind es die **Schriften**: Einige Systemschriften (unter macOS z.B. Helvetica oder Lucida Grande) werden von FileMaker beim PDF-Export so eingebettet, dass das Ergebnis die PDF/A-Prüfung nicht besteht. Nach Wechsel auf eine andere Schrift (z.B. Helvetica Neue) waren die PDFs in unseren Tests fehlerfrei.
-
-Die meisten Probleme lassen sich damit in wenigen Minuten selbst lösen:
-
-1. Das PDF z.B. mit [veraPDF](https://verapdf.org) (Open Source, Desktop und Kommandozeile) oder einem Online-Tool gegen PDF/A-3B prüfen. Meldungen zu Fonts, CIDSet oder Glyphen deuten auf das Schriftproblem hin.
-2. Im Rechnungslayout auf eine andere Schrift wechseln – auch in Kopf- und Fußzeilen und in Layoutobjekten – und erneut erzeugen.
-
-Bleibt das Problem bestehen, helfen wir gern weiter. 
+Für Factur-X/ZUGFeRD wird das übergebene PDF in ein PDF/A-3 umgewandelt. Diese Konvertierung ist die empfindlichste Stelle im Prozess – die Ursache für Probleme liegt fast immer im Ausgangs-PDF, meist in den verwendeten **Schriften**. Wie Sie solche Fehler erkennen und beheben, steht in [docs/debugging.md](docs/debugging.md#pdfa-fehler-factur-xzugferd).
 
 ## Verwendete Open-Source-Bibliothek
 
@@ -87,6 +78,13 @@ FX Invoices verfügt über eine integrierte Update-Funktion. Aktualisierungen vo
 ## Lizenz
 
 FX Invoices ist ein kommerzielles Produkt. Siehe [LICENSE.md](LICENSE.md) und die [Leistungsbeschreibung](docs/leistungsbeschreibung.md).
+
+## Kontakt
+
+- **Fehler, fehlende Felder, Fragen zur Integration:** [GitHub-Issues](https://github.com/fmgarage/fx-invoices/issues) (bevorzugt)
+- **Lizenzen, Anfragen und alles, was nicht öffentlich sein soll** (z. B. Rechnungen oder PDFs zur Fehlersuche): info@fmgarage.com
+
+Bitte keine echten Rechnungsdaten in Issues veröffentlichen.
 
 ---
 
