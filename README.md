@@ -36,6 +36,12 @@ FX Invoices erzeugt strukturierte elektronische Rechnungen (XRechnung, UBL, CII,
 3. Die Beispieldatei **Billo** öffnen und die E-Rechnung erstellen.
 4. Die Beispieldateien enthalten eine Testlizenz bis 10.01.2027, siehe [examples/demo_user_license.md](examples/demo_user_license.md). Bitte die voreingestellte E-Mail-Adresse verwenden.
 
+## Integration in bestehende Lösungen
+
+FX Invoices erzeugt die E-Rechnung – die eigentliche Arbeit bei der Integration liegt in der Aufbereitung der Daten. Eine PDF-Rechnung wurde vom Empfänger gelesen und eingeordnet; eine E-Rechnung muss diese Informationen von Anfang an eindeutig enthalten: Steuerkategorie und -satz je Betrag, Rabatte und Zuschläge auf Positions- oder Rechnungsebene, Bezug auf frühere Rechnungen bei Gutschriften, Mengeneinheiten als Code. Zwischensummen, reine Textzeilen oder ein Rabatt als freie Zeile, wie sie auf PDF-Rechnungen üblich sind, gibt es im Format so nicht.
+
+Der Aufwand hängt deshalb weniger von FX Invoices ab als vom Aufbau der bestehenden Lösung und den abgerechneten Geschäftsvorfällen (Gutschriften, Abschlags- und Schlussrechnungen, Rabatte, mehrere Steuersätze, steuerfreie Leistungen). Die Templates im Ordner [`templates/`](templates/) zeigen, welche Angaben benötigt werden. Wer die eigene Lösung kennt, kommt damit in der Regel schnell zum Ziel – auf Wunsch übernehmen wir die Integration.
+
 ## Dateiverschlüsselung (Encryption at Rest)
 
 Die ausgelieferte Datei ist mit FileMakers **Encryption at Rest (EAR)** verschlüsselt. Beim erstmaligen Öffnen bzw. beim Hosting auf einem FileMaker Server wird das Verschlüsselungspasswort abgefragt:
