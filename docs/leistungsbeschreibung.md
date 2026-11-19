@@ -1,3 +1,6 @@
+---
+footer: "Seite ${pageNo} von ${pageCount}"
+---
 # Leistungsbeschreibung FX Invoices
 
 > Stand: September 2026 | FMGarage e.K., Berlin
